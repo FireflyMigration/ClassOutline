@@ -11,6 +11,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Windows;
 using System.Windows.Input;
 using EnvDTE;
+using log4net;
 
 namespace ClassOutline.ControlLibrary
 {
@@ -123,7 +124,7 @@ namespace ClassOutline.ControlLibrary
                 // ret.Add(m);
             }
             if (_usageMenus != null) ret.AddRange(_usageMenus);
-
+            
             if (_regionMenus == null)
             {
                 _regionMenus = createRegionMenuItems();
@@ -472,7 +473,7 @@ namespace ClassOutline.ControlLibrary
         internal class GotoProjectItemCommand : ICommand
         {
             private readonly Action<int> _onExecute;
-         
+            private ILog _log = LogManager.GetLogger(typeof (GotoProjectItemCommand));
 
             private int _lineNumber;
 
@@ -492,8 +493,14 @@ namespace ClassOutline.ControlLibrary
 
             public void Execute(object parameter)
             {
-                _onExecute(_lineNumber);
-
+                try
+                {
+                    _onExecute(_lineNumber);
+                }
+                catch (Exception e)
+                {
+                    _log.Error("GotoProjectItem failed", e );
+                }
 
             }
 
@@ -503,10 +510,12 @@ namespace ClassOutline.ControlLibrary
         {
             private int _lineNumber;
             private readonly Action<int> _onExecute;
+            private ILog _log = LogManager.GetLogger(typeof (GotoCodeLocationCommand));
 
             public GotoCodeLocationCommand(int lineNumber, Action<int> onExecute)
             {
                 _lineNumber = lineNumber;
+       
                 _onExecute = onExecute;
             }
 
@@ -517,7 +526,14 @@ namespace ClassOutline.ControlLibrary
 
             public void Execute(object parameter)
             {
-                _onExecute(this._lineNumber);
+                try
+                {
+                    _onExecute(this._lineNumber);
+                }
+                catch (Exception e)
+                {
+                    _log.Error("GotoCodeLocation failed", e );
+                }
             }
 
             public event EventHandler CanExecuteChanged;
@@ -531,9 +547,10 @@ namespace ClassOutline.ControlLibrary
         public class GotoViewCommand : ICommand
         {
             public Action<object, int> OnExecute { get; set; }
+            private ILog _log = LogManager.GetLogger(typeof(GotoViewCommand));
 
 
-           
+
             private readonly Func<object> _getCodeElementFunc;
             private readonly string _viewTypeName;
 
@@ -553,6 +570,9 @@ namespace ClassOutline.ControlLibrary
             public void Execute(object parameter)
             {
 
+                try
+                {
+                 
                 var ce = (CodeElement)_getCodeElementFunc();
                 if (ce == null)
                 {
@@ -561,7 +581,11 @@ namespace ClassOutline.ControlLibrary
                 }
                 
                 OnExecute(ce, ce.StartPoint.Line);
-
+                }
+                catch (Exception e)
+                {
+                    _log.Error("GotoView failed", e);
+                }
             }
 
             public event EventHandler CanExecuteChanged;

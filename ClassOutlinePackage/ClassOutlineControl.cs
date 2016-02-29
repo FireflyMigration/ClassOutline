@@ -18,9 +18,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using ClassOutline.Annotations;
 using ClassOutline.ControlLibrary;
+using ClassOutline.Logging;
+using ClassOutline.Services;
 using ClassOutline.TreeNodes;
 using EnvDTE;
 using EnvDTE80;
+using log4net;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
@@ -44,6 +47,8 @@ namespace ClassOutline
     /// </summary>
     public partial class ClassOutlineControl : UserControl, INotifyPropertyChanged
     {
+        private ILog _log = LogManager.GetLogger(typeof (ClassOutlineControl));
+
         private const int MAX_PATH = 260;
         private const int IMAGE_NONE = -1;
        
@@ -93,10 +98,28 @@ namespace ClassOutline
                 this.shellService = shellService;
                 this.callback = callback;
 
+                // if not in zombie-mode, invoke callback
+                if (!zombieMode(shellService))
+                {
+                    callback();
+                    return;
+                }
                 // Set an event handler to detect when the IDE is fully initialized
                 hr = this.shellService.AdviseShellPropertyChanges(this, out this.cookie);
-
+                
                 Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(hr);
+            }
+
+            private bool zombieMode(IVsShell vsShell)
+            {
+                object initialised = false;
+
+                var result = vsShell.GetProperty((int)__VSSPROPID4.VSSPROPID_ShellInitialized, out initialised );
+                if (result == 0)
+                {
+                    return (bool) initialised == false;
+                }
+                return true;
             }
 
             int IVsShellPropertyEvents.OnShellPropertyChange(int propid, object var)
@@ -136,6 +159,7 @@ namespace ClassOutline
         {
             IVsShell shellService;
   shellService = ServiceProvider.GlobalProvider.GetService(typeof(SVsShell)) as IVsShell;
+
             _dteInitializer = new DteInitializer(shellService, () =>
             {
 
@@ -209,6 +233,10 @@ namespace ClassOutline
             _eventRoot.Value.DTEEvents.OnBeginShutdown += detachDTEEventHandlers;
 
             _windowEvents.Value.WindowActivated += onWindowEventHandler;
+
+            // setup the visual studio logger
+            VisualStudioOutputLogger.DTE = _dte;
+
         }
 
         private void onSelectionChanged()
@@ -263,7 +291,9 @@ namespace ClassOutline
         // when refresh button is clicked outline code from scratch
         private void refreshButton_Click(object sender, RoutedEventArgs e)
         {
-            OutlineCode();
+          
+                OutlineCode();
+            
         }
 
         /// <summary>
@@ -358,51 +388,58 @@ namespace ClassOutline
             {
                 elements = activeProjectItem.FileCodeModel.CodeElements;
             }
-            catch
+            catch(Exception e)
+            
             {
+                _log.Debug("Error finding elements in OutlineCode", e);
                 return;
             }
-            
-            // get the regions
-            var d = activeProjectItem.Document;
-            var c = new RegionParser();
-
-            var regionTask = c.GetRegions(d);
-            var vp = new ViewParser();
-            
-         
-            Data = new OutlineItem();
-
-            // "expand" each element
-            for (var i = 1; i <= elements.Count; i++)
+            try
             {
-                createClassList(elements.Item(i), Data);
+                // get the regions
+                var d = activeProjectItem.Document;
+                var c = new RegionParser();
 
-               
+                var regionTask = c.GetRegions(d);
+                var vp = new ViewParser();
+
+
+                Data = new OutlineItem();
+
+                // "expand" each element
+                for (var i = 1; i <= elements.Count; i++)
+                {
+                    createClassList(elements.Item(i), Data);
+
+
+                }
+
+                // set the "tracked" document to the current document
+                CurrentDoc = d;
+
+                var regions = await regionTask;
+
+
+                Debug.WriteLine("Regions completed");
+
+                initSynctimer();
+
+                _regions = new List<ICodeRegion>();
+                if(regions!=null) _regions.AddRange(regions);
+
+
+                //var result = vp.FindViews(activeProjectItem, views);
+                Data.AddRegions(_regions);
+
+                selectActiveCodeInTree();
+                Data.IsExpanded = true;
+                if (Data.Children.Any()) Data.Children.First().IsExpanded = true;
+
             }
-            
-            // set the "tracked" document to the current document
-            CurrentDoc = d;
-            
-            var regions = await regionTask;
-           
-
-            Debug.WriteLine("Regions completed");
-
-            initSynctimer();
-
-            _regions = new List<ICodeRegion >();
-            _regions.AddRange(regions);
-            
-
-            //var result = vp.FindViews(activeProjectItem, views);
-            Data.AddRegions(_regions);
-            
-            selectActiveCodeInTree();
-            Data.IsExpanded = true;
-            if (Data.Children.Any()) Data.Children.First().IsExpanded = true;
-
-
+            catch (Exception e)
+            {
+                _log.Error("Failed OutlineCode2", e);
+            }
         }
 
        
@@ -412,15 +449,23 @@ namespace ClassOutline
             set
             {
                 if (_data == value) return;
-
-                _data = value;
-                tvOutline.DataContext = _data;
-                if(_data!=null && _data.Children.Any())
+                try
                 {
-                    tvOutline.Select(_data.Children.First());
+                    _data = value;
+                    if (tvOutline != null)
+                    {
+                        tvOutline.DataContext = _data;
+                        if (_data != null && _data.Children.Any())
+                        {
+                            tvOutline.Select(_data.Children.First());
+                        }
+                    }
+                    OnPropertyChanged();
                 }
-
-                OnPropertyChanged();
+                catch (Exception e)
+                {
+                    _log.Error("Failed OutlineItem.Data(set)", e );
+                }
             }
         }
 
@@ -488,7 +533,7 @@ namespace ClassOutline
             }
             catch (Exception e)
             {
-                Debug.WriteLine("Exception in sync\n" + e.Message);
+               _log.Error("error selectActiveCodeInTree", e );
             }
             _syncing = false;
         }
@@ -513,6 +558,7 @@ namespace ClassOutline
             {
                 return;
             }
+            if (tvOutline == null) return;
 
             var itm = Data.Find(x => x.FullName == itemToHighlight.FullName);
             

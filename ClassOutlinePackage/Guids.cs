@@ -12,4 +12,10 @@ namespace ClassOutline
 
         public static readonly Guid guidVSPackage1CmdSet = new Guid(guidVSPackage1CmdSetString);
     };
+    static class PkgCmdIDList
+    {
+
+        public const uint cmdidMyTool = 0x101;
+
+    };
 }

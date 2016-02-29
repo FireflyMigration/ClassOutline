@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using ClassOutline;
+using ClassOutline.Services;
 using NUnit.Framework;
 
 namespace VSPackage1_UnitTests

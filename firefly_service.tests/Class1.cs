@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ClassOutline;
+using ClassOutline.Services;
 using NUnit.Framework;
 
 namespace _service.tests

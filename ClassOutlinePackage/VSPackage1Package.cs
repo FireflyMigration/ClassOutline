@@ -4,6 +4,9 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.InteropServices;
 using System.ComponentModel.Design;
+using System.IO;
+using log4net;
+using log4net.Config;
 using Microsoft.Win32;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell.Interop;
@@ -62,9 +65,39 @@ namespace ClassOutline
         /// </summary>
         public VSPackage1Package()
         {
+            XmlConfigurator.Configure(new FileInfo("logging.config"));
+            var logger = LogManager.GetLogger(this.GetType());
+            logger.Debug("Startup");
+
             IServiceContainer serviceContainer = this;
             ServiceCreatorCallback cc = CreateService;
             serviceContainer.AddService(typeof(IClassOutlineSettingsProvider), cc, true );
+            registerExceptionHandler();
+        }
+
+        private void registerExceptionHandler()
+        {
+            // Register Unhandled Exception Handler
+            AppDomain.CurrentDomain.UnhandledException +=
+                new UnhandledExceptionEventHandler(UnhandledExceptionHandler);
+
+        }
+
+        private void UnhandledExceptionHandler(object sender, UnhandledExceptionEventArgs args)
+        {
+            Exception ex = (Exception)args.ExceptionObject;
+
+            var logger = LogManager.GetLogger(this.GetType());
+            string ErrorMessage = String.Format(
+            "Error: {0}\r\n" +
+            "Runtime Terminating: {1}\r\n----- ----- ----- ----- ----- -----\r\n\r\n" +
+            "{2}\r\n\r\n####################################\r\n",
+                ex.Message,
+                args.IsTerminating,
+                ex.StackTrace.Trim());
+
+            logger.Fatal("Fatal Error:"+ErrorMessage);
+
         }
 
         private object CreateService(IServiceContainer container, Type servicetype)

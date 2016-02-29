@@ -170,13 +170,12 @@ namespace ClassOutline.ControlLibrary
                         itemsPresenter = FindVisualChild<ItemsPresenter>(container);
                     }
                 }
+                if (itemsPresenter == null) return null;
 
                 Panel itemsHostPanel = (Panel)VisualTreeHelper.GetChild(itemsPresenter, 0);
 
 
-                // Ensure that the generator for this panel has been created.
-                UIElementCollection children = itemsHostPanel.Children;
-
+                
                 MyVirtualizingStackPanel virtualizingPanel =
                     itemsHostPanel as MyVirtualizingStackPanel;
 

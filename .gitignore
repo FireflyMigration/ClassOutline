@@ -16,6 +16,9 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
+# signing files 
+*.pfx
+
 # Windows Installer files
 *.cab
 *.msi
