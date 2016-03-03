@@ -143,7 +143,7 @@
             </Grid.RowDefinitions>
             <ToolBarPanel Grid.Row="0" Grid.Column="0"  Height="26" OpacityMask="Black" Background="#FFBCC7D8" VerticalAlignment="Top">
                 <StackPanel Orientation="Horizontal">
-                    <Button x:Name="refreshButton" ToolTip="Refresh" Content="Button" Width="22" Style="{DynamicResource refreshButtonStyle}" Height="22" HorizontalAlignment="Left" RenderTransformOrigin="-5.292,3.417" Margin="4,2,0,0" >
+                    <Button x:Name="refreshButton" ToolTip="Refresh" Content="Button" Width="22" Style="{DynamicResource refreshButtonStyle}" Height="22" HorizontalAlignment="Left" RenderTransformOrigin="-5.292,3.417" Margin="4,2,0,0" Click="refreshButton_Click" >
                     
                     </Button>
                             

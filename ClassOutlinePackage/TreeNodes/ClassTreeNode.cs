@@ -6,28 +6,52 @@ using System.Runtime.CompilerServices;
 using System.Runtime.Versioning;
 using System.Web.UI.Design;
 using EnvDTE;
+using log4net;
 
 namespace ClassOutline.TreeNodes
 {
     public class ClassTreeNode: GenericTreeNode<CodeClass>
     {
+        private ILog _log = LogManager.GetLogger(typeof (ClassTreeNode));
+
         public IList<string> BaseClassList { get; private set; }
         public  ClassTreeNode(CodeClass src) : base(src)
         {
+            try
+            {
+                // grab its qualified and unqualified name
+                FullName = src.FullName;
+                Name = src.FullName.Split('.').Last();
+                Kind = "Classes";
+                Access = src.Access;
+                _log.Debug("Created TreeNode:" + Name);
 
-            // grab its qualified and unqualified name
-            FullName = src.FullName;
-            Name = src.FullName.Split('.').Last();
-            Kind = "Classes";
-            Access = src.Access;
+                BaseClassList = addBaseClasses(src);
+              
+                FullType = src.FullName;
+            }
+            catch (Exception e)
+            {
+                _log.Error("Failed to create ClassTreeNode", e );
+                throw;
+            }
+        }
 
-            BaseClassList = new List<string>();
+        private IList<string> addBaseClasses(CodeClass src)
+        {
+            var ret = new List<string>();
+
             foreach (CodeElement item in src.Bases)
             {
-                BaseClassList.Add(item.FullName );
-
+                ret.Add(item.FullName);
+                var baseClass = item as CodeClass;
+                if (baseClass != null)
+                {
+                    ret.AddRange(addBaseClasses(baseClass));
+                }
             }
-            FullType = src.FullName;
+
+            return ret;
         }
 
         public Type GetBaseType()
@@ -49,7 +73,7 @@ namespace ClassOutline.TreeNodes
             }
             return null;
         }
-
+         
         public string GetBaseTypeName()
         {
             return BaseClassList.FirstOrDefault();

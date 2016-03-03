@@ -319,7 +319,7 @@ namespace ClassOutline
 
         private ProjectItem getSelectedProjectItem()
         {
-            return DTE?.ActiveWindow?.ProjectItem;
+            return DTE?.ActiveDocument?.ProjectItem;
 
             UIHierarchy uih = _dte2.ToolWindows.SolutionExplorer;
             Array selectedItems = (Array)uih.SelectedItems;
@@ -481,7 +481,8 @@ namespace ClassOutline
                 _settingService.Value.FireflyImagesEnabled = value;
 
                 OnPropertyChanged();
-                
+                OutlineCode();
+
             }
         }
 
@@ -615,12 +616,13 @@ namespace ClassOutline
                 child.ToolTipText = createClassSummary(cls.DocComment);
                 child.FullName = element.FullName;
                 child.BaseTypeName = tn.GetBaseTypeName();
+                
                 child.ImageUri = new Uri("/Resources/Classes.png", UriKind.Relative);
                 child.GotoCodeLocationEventHandler += gotoCodeLocation;
                 child.OpenProjectItemEventHandler  += openProjectItem;
                 child.ProjectItem = cls.ProjectItem;
                 child.UpdateViewsEventHandler  += UpdateViewItems;
-                if (FireflyImagesEnabled && child.BaseTypeName.Contains("UIController"))
+                if (FireflyImagesEnabled && tn.BaseClassList.Any(x => x.Contains("UIController")))
                 {
 
                     child.ImageUri = new Uri("/Resources/UIController.png", UriKind.Relative);
@@ -920,8 +922,13 @@ namespace ClassOutline
 
         private void FireflyImagesEnabled_Checked(object sender, RoutedEventArgs e)
         {
-            refreshButton_Click(sender, e);
+            // toggle the firefly setting
+
         }
+
+      
+
+      
     }
    
 }
