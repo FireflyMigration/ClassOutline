@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="08239c20-ccf6-4f5f-8c36-0b5669cb462e" Version="1.5" Language="en-US" Publisher="Firefly Community" />
+    <Identity Id="08239c20-ccf6-4f5f-8c36-0b5669cb462e" Version="1.6" Language="en-US" Publisher="Firefly Community" />
     <DisplayName>Class Outline</DisplayName>
     <Description xml:space="preserve">Displays the child classes for the currently edited class</Description>
     <MoreInfo>https://github.com/stickleprojects/ClassOutline</MoreInfo>
