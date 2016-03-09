@@ -7,6 +7,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
+using log4net;
 
 namespace ClassOutline.ControlLibrary
 {
@@ -36,7 +37,7 @@ namespace ClassOutline.ControlLibrary
     public partial class OutlineControl : UserControl
     {
         private int? _tooltipDuration=null ;
-
+        private ILog _log = LogManager.GetLogger(typeof (OutlineControl));
         public delegate void ItemDoubleClickHandler(object sender, MouseButtonEventArgs args);
 
           public event ItemDoubleClickHandler ItemDoubleClick;
@@ -90,6 +91,12 @@ namespace ClassOutline.ControlLibrary
 
         private void OnContextMenuOpening(object sender, ContextMenuEventArgs e)
         {
+            // prevent bubbling
+            var originalDc = (OutlineItem)getDataContext(e.OriginalSource);
+            var currentDc = (OutlineItem)getDataContext(sender);
+
+            if (originalDc!=null && currentDc!=null && !originalDc.FullName.Equals( currentDc.FullName)) return;
+            
             TreeViewItem tvi = (TreeViewItem) sender;
             
            // enableTooltips(tvi, false );
@@ -97,13 +104,29 @@ namespace ClassOutline.ControlLibrary
             var dc = tvi.DataContext as OutlineItem;
             if (dc != null)
             {
-                
-                if (dc.MenuItems == null || !dc.MenuItems.Any())
-                {
-                    e.Handled = true;
+                var menuItems = dc.MenuItems;
 
+                if (menuItems  == null || !menuItems.Any())
+                {
+                    _log.Debug("No menuitems found for " + dc.Name );
+                    e.Handled = true;
+                    
                 }
+//e.Handled = true;
             }
+        }
+
+        private OutlineItem getDataContext(object originalSource)
+        {
+            var tb = originalSource as TextBlock;
+            if (tb != null) return (OutlineItem) tb.DataContext;
+
+            var c = originalSource as Control;
+            if (c != null) return (OutlineItem) c.DataContext;
+
+            var i = originalSource as Image;
+            if (i != null) return (OutlineItem)i.DataContext;
+            return null;
         }
 
         private void enableTooltips(Control control, bool isEnabled)
@@ -211,12 +234,7 @@ namespace ClassOutline.ControlLibrary
                         {
                             return resultContainer;
                         }
-                        else
-                        {
-                            // The object is not under this TreeViewItem
-                            // so collapse it.
-                            subContainer.IsExpanded = false;
-                        }
+                      
                     }
                 }
             }

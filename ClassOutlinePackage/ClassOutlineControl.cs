@@ -377,7 +377,7 @@ namespace ClassOutline
         /// <summary>
         ///     Performs outline of activated code file
         /// </summary>
-        public async Task OutlineCode(ProjectItem activeProjectItem)
+        public  void OutlineCode(ProjectItem activeProjectItem)
         {
             CodeElements elements;
             _displayedProjectItem = activeProjectItem;
@@ -396,15 +396,19 @@ namespace ClassOutline
             }
             try
             {
+                
                 // get the regions
                 var d = activeProjectItem.Document;
                 var c = new RegionParser();
+                _log.Debug( "Identifying regions");
 
                 var regionTask = c.GetRegions(d);
                 var vp = new ViewParser();
 
 
                 Data = new OutlineItem();
+
+                _log.Debug("Identifying Classes and methods");
 
                 // "expand" each element
                 for (var i = 1; i <= elements.Count; i++)
@@ -417,24 +421,21 @@ namespace ClassOutline
                 // set the "tracked" document to the current document
                 CurrentDoc = d;
 
-                var regions = await regionTask;
+                regionTask.Wait();
+                var regions = regionTask.Result;
 
-
-                Debug.WriteLine("Regions completed");
-
+                
                 initSynctimer();
 
                 _regions = new List<ICodeRegion>();
                 if(regions!=null) _regions.AddRange(regions);
-
-
+                
                 //var result = vp.FindViews(activeProjectItem, views);
                 Data.AddRegions(_regions);
 
                 selectActiveCodeInTree();
-                Data.IsExpanded = true;
-                if (Data.Children.Any()) Data.Children.First().IsExpanded = true;
-
+               Data.ExpandAll();
+                
             }
             catch (Exception e)
             {
@@ -515,12 +516,9 @@ namespace ClassOutline
                 {
                     if (currentCodeElement.ProjectItem != _displayedProjectItem)
                     {
-                       var t= OutlineCode(currentCodeElement.ProjectItem);
-                        t.ContinueWith((task) =>
-                        {
+                       OutlineCode(currentCodeElement.ProjectItem);
                             _syncing = false;
                             selectActiveCodeInTree();
-                        });
                         return;
                     }
                     if (_previousCodeElement == null || !Equals(currentCodeElement,_previousCodeElement))
@@ -587,75 +585,92 @@ namespace ClassOutline
             }
         }
 
-        private void createClassList(CodeElement element, OutlineItem  parent)
+        private void createClassList(CodeElement element, OutlineItem parent)
         {
-    
 
-            // if it's a namespace, expand each of its members
-            if (element.Kind == vsCMElement.vsCMElementNamespace)
+            try
+
             {
-                var codeNamespace = element as CodeNamespace;
-                if (codeNamespace != null)
+
+                // if it's a namespace, expand each of its members
+                if (element.Kind == vsCMElement.vsCMElementNamespace)
                 {
-                    var members = codeNamespace.Members;
-
-                    for (var i = 1; i <= members.Count; i++)
-                        createClassList(members.Item(i), parent);
-                }
-            }
-
-            // if it's a class...
-            else if (element.Kind == vsCMElement.vsCMElementClass)
-            {
-                var cls = (CodeClass)element;
-                var tn = new ClassTreeNode(cls);
-
-                var child = new OutlineItem();
-                parent.AddChild( child);
-                child.Name = cls.Name;
-                child.ToolTipText = createClassSummary(cls.DocComment);
-                child.FullName = element.FullName;
-                child.BaseTypeName = tn.GetBaseTypeName();
-                
-                child.ImageUri = new Uri("/Resources/Classes.png", UriKind.Relative);
-                child.GotoCodeLocationEventHandler += gotoCodeLocation;
-                child.OpenProjectItemEventHandler  += openProjectItem;
-                child.ProjectItem = cls.ProjectItem;
-                child.UpdateViewsEventHandler  += UpdateViewItems;
-                if (FireflyImagesEnabled && tn.BaseClassList.Any(x => x.Contains("UIController")))
-                {
-
-                    child.ImageUri = new Uri("/Resources/UIController.png", UriKind.Relative);
-                }
-                child.StartLineOfCode = element.StartPoint.Line ;
-                child.EndLineOfCode = element.EndPoint.Line;
-
-                var members = ((CodeClass)element).Members;
-
-              
-                // expand each of the class's members
-                for (var i = 1; i <= members.Count; i++)
-                    createClassList(members.Item(i), child);
-            }
-            // else, we are at a regular code element (field, property, method, etc.)
-            else
-            {
-                // add methods
-                if (element.Kind == vsCMElement.vsCMElementFunction)
-                {
-                    var f = (CodeFunction2) element;
-                    var priority = getMethodPriority(f);
-
-                    if (priority >0)
+                    var codeNamespace = element as CodeNamespace;
+                    if (codeNamespace != null)
                     {
-                        var signature = getSignature(f);
-                        parent.AddMethod(new OutlineItem.Method() {SortOrder = -priority,Signature = signature, LineNumber = f.StartPoint.Line, Name = getFunctionName(f), FullName = f.FullName,  Category = "Override", Comment = f.DocComment ?? f.Comment });
+                        var members = codeNamespace.Members;
+
+                        for (var i = 1; i <= members.Count; i++)
+                            createClassList(members.Item(i), parent);
+                    }
+                }
+
+                // if it's a class...
+                else if (element.Kind == vsCMElement.vsCMElementClass)
+                {
+                    var cls = (CodeClass) element;
+                    var tn = new ClassTreeNode(cls);
+
+                    var child = new OutlineItem();
+                    parent.AddChild(child);
+                    child.Name = cls.Name;
+                    child.ToolTipText = createClassSummary(cls.DocComment);
+                    child.FullName = element.FullName;
+                    child.BaseTypeName = tn.GetBaseTypeName();
+
+                    child.ImageUri = new Uri("/Resources/Classes.png", UriKind.Relative);
+                    child.GotoCodeLocationEventHandler += gotoCodeLocation;
+                    child.OpenProjectItemEventHandler += openProjectItem;
+                    child.ProjectItem = cls.ProjectItem;
+                    child.UpdateViewsEventHandler += UpdateViewItems;
+                    if (FireflyImagesEnabled && tn.BaseClassList.Any(x => x.Contains("UIController")))
+                    {
+
+                        child.ImageUri = new Uri("/Resources/UIController.png", UriKind.Relative);
+                    }
+                    child.StartLineOfCode = element.StartPoint.Line;
+                    child.EndLineOfCode = element.EndPoint.Line;
+
+                    var members = ((CodeClass) element).Members;
+
+
+                    // expand each of the class's members
+                    for (var i = 1; i <= members.Count; i++)
+                        createClassList(members.Item(i), child);
+                }
+                // else, we are at a regular code element (field, property, method, etc.)
+                else
+                {
+                    // add methods
+                    if (element.Kind == vsCMElement.vsCMElementFunction)
+                    {
+                        var f = (CodeFunction2) element;
+                        var priority = getMethodPriority(f);
+
+                        if (priority > 0)
+                        {
+                            var signature = getSignature(f);
+                            parent.AddMethod(new OutlineItem.Method()
+                            {
+                                SortOrder = -priority,
+                                Signature = signature,
+                                LineNumber = f.StartPoint.Line,
+                                Name = getFunctionName(f),
+                                FullName = f.FullName,
+                                Category = "Override",
+                                Comment = f.DocComment ?? f.Comment
+                            });
+                        }
+
+
                     }
 
-                  
+                    //expandNonClassElements(element, parent, items, hierarchyItem);
                 }
-
-                //expandNonClassElements(element, parent, items, hierarchyItem);
+            }
+            catch (Exception e)
+            {
+                _log.Error("Failed createClassList", e );
             }
         }
 

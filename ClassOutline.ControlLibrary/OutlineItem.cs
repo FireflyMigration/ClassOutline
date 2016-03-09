@@ -52,6 +52,7 @@ namespace ClassOutline.ControlLibrary
         private bool _isExpanded;
         private IEnumerable<ViewReference> _views;
         private IList<ContextMenuItem> _usageMenus;
+        private List<ContextMenuItem> _menuItems;
 
         public OutlineItem Find(Func<OutlineItem, bool> predicate)
         {
@@ -102,14 +103,27 @@ namespace ClassOutline.ControlLibrary
             }
         }
 
+        
         public IEnumerable<ContextMenuItem> MenuItems
         {
             get
+
+
             {
-                var ret = createMenuItems();
 
-
-                return ret;
+                if (_menuItems == null)
+                {
+                    var ret = createMenuItems();
+                    if (ret != null && ret.Any())
+                    {
+                        _menuItems = ret;
+                    }
+                    else
+                    {
+                       
+                    }
+                }
+                return _menuItems ;
             }
         }
 
@@ -341,12 +355,25 @@ namespace ClassOutline.ControlLibrary
         public int EndLineOfCode { get; set; }
         public string FullName { get; set; }
 
+        public void ExpandAll()
+        {
+            this.IsExpanded = true;
 
+            if(Children!=null)
+                foreach (var c in Children)
+                {
+                    c.ExpandAll();
+                }
+        }
 
         public bool IsExpanded
         {
             get { return _isExpanded; }
-            set { _isExpanded = value; }
+            set
+            {
+                _isExpanded = value;
+            OnPropertyChanged();
+            }
         }
 
         public ProjectItem ProjectItem { get; set; }

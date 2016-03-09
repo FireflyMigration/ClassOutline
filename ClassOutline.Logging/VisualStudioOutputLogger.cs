@@ -26,13 +26,29 @@ namespace ClassOutline.Logging
         protected override void Append(LoggingEvent loggingEvent)
         {
             Debug.WriteLine("ClassOutline.Logging:" + loggingEvent.RenderedMessage);
-            var tmp = new
+  
+            dynamic tmp = null;
+
+            if (loggingEvent.ExceptionObject != null)
             {
-                Message = loggingEvent.RenderedMessage,
-                Exception = loggingEvent.ExceptionObject
-            };
-            var s = JsonConvert.SerializeObject(tmp);
-            ReportError(s );
+                tmp = new
+                {
+                    Message = loggingEvent.RenderedMessage,
+
+                };
+            }
+            else
+            {
+                tmp = new
+                {
+                    Message = loggingEvent.RenderedMessage,
+
+                    Exception = loggingEvent.ExceptionObject
+                };
+            }
+
+            var errorMessage = JsonConvert.SerializeObject(tmp);
+            ReportError(errorMessage);
         }
 
         private void ReportError(string errorInfo)
