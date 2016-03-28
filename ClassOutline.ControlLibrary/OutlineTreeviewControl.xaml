@@ -139,6 +139,14 @@
                             <Image.ToolTip   >
                                 <ToolTip   Content="{Binding ToolTipText}" Style="{StaticResource TT}"/>
                             </Image.ToolTip>
+                            <Image.ContextMenu>
+                                <ContextMenu ItemsSource="{Binding MenuItems}" ItemContainerStyle="{StaticResource CommandItemStyle}"
+                                            >
+                                    <ContextMenu.ToolTip>
+                                        <ToolTip Content="" Style="{StaticResource TT}"/>
+                                    </ContextMenu.ToolTip>
+                                </ContextMenu>
+                            </Image.ContextMenu>
                         </Image>
                         <Border Grid.Column="1" Style="{StaticResource ItemBorder}">
                             <TextBlock  Text="{Binding Name}" >

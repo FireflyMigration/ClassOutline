@@ -2,20 +2,25 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using EnvDTE;
+using log4net;
 
 namespace ClassOutline.Services
 {
     public class ViewParser
     {
+        private ILog _log = LogManager.GetLogger(typeof (ViewParser));
 
+        
         public class ViewAssignment
         {
             public string TypeName { get; set; }
             public int LineNumber { get; set; }
             public Func<CodeElement> CodeElement { get; set; }
+            public int LineOffset { get; set; }
         }
         private string _documentText;
 
@@ -128,31 +133,33 @@ namespace ClassOutline.Services
 
             foreach (var v in views)
             {
-                Debug.WriteLine(v.TypeName);
-              
-                Project parent =  activeProjectItem.Collection.Parent as Project   ;
-                ProjectItems projectItems = null;
-
-                if (parent == null)
+                if (v != null)
                 {
-                    var pi = activeProjectItem.Collection.Parent as ProjectItem;
-                    if (pi != null)
+                    Debug.WriteLine(v.TypeName);
+
+                    Project parent = activeProjectItem.Collection.Parent as Project;
+                    ProjectItems projectItems = null;
+
+                    if (parent == null)
                     {
-                        projectItems = pi.ProjectItems;
+                        var pi = activeProjectItem.Collection.Parent as ProjectItem;
+                        if (pi != null)
+                        {
+                            projectItems = pi.ProjectItems;
+                        }
+                        else
+                        {
+                            projectItems = activeProjectItem.ContainingProject.ProjectItems;
+                        }
+
                     }
                     else
                     {
-                        projectItems = activeProjectItem.ContainingProject.ProjectItems;
+                        projectItems = parent.ProjectItems;
                     }
 
+                    v.CodeElement = () => FindType(projectItems, v.TypeName);
                 }
-                else
-                {
-                    projectItems = parent.ProjectItems;
-                }
-
-                v.CodeElement = () => FindType(projectItems, v.TypeName);
-                
             }
         }
 
@@ -183,7 +190,7 @@ namespace ClassOutline.Services
             return result;
         }
 
-        public IEnumerable<ViewAssignment> GetViewAssignments(string src)
+        public IEnumerable<ViewAssignment> GetViewAssignments(string src, int startLine, int startLineOfCodeOffset)
         {
             var ret = new List<ViewAssignment>();
 
@@ -204,7 +211,7 @@ namespace ClassOutline.Services
                 // find the class name
                 var typename = getTypeName(typeshortname);
 
-                ret.Add(new ViewAssignment() { TypeName = typename, LineNumber = lineNumber });
+                ret.Add(new ViewAssignment() { TypeName = typename, LineNumber = lineNumber + startLine , LineOffset = start -start });
 
                 
             }
@@ -220,16 +227,65 @@ namespace ClassOutline.Services
 
         public string DocumentText { get { return _documentText; } }
 
-        public async Task<IEnumerable<ViewAssignment>> GetViews(Document document, int startline, int endline)
+        public async Task<IEnumerable<ViewAssignment>> GetViews(Document document, int startline, int startLineOfCodeOffset, int endline)
         {
-            _documentText = getDocumentText(document, startline, endline );
+            _documentText = getDocumentText(document, startline,startLineOfCodeOffset, endline );
             
             if (_documentText == null) return null;
-            return GetViewAssignments(_documentText);
+            var assignments= GetViewAssignments(_documentText, startline, startLineOfCodeOffset );
 
+            var filteredAssignments = removeAssignmentsNotInClass (assignments, document, startline, startLineOfCodeOffset);
+
+            return filteredAssignments;
         }
 
-        private string getDocumentText(Document document, int startline, int endline)
+        private IEnumerable<ViewAssignment> removeAssignmentsNotInClass(IEnumerable<ViewAssignment> assignments, Document document, int startline, int startLineOfCodeOffset)
+        {
+            var parentCE = getCodeElementFromLine(document, startline, startLineOfCodeOffset);
+
+            var ret = new List<ViewAssignment>();
+            foreach (var va in assignments)
+            {
+                CodeElement viewCE = null;
+                if (va.CodeElement != null) viewCE = va.CodeElement();
+                if (viewCE == null)
+                {
+                    viewCE = getCodeElementFromLine(document, va.LineNumber, va.LineOffset);
+                }
+                if (viewCE != null)
+                {
+                    if (viewCE.FullName == parentCE.FullName)
+                    {
+                        ret.Add(va);
+                    }
+                }
+            }
+            return ret;
+        }
+
+        private CodeElement getCodeElementFromLine(Document document, int startline, int startLineOfCodeOffset)
+        {
+            var textDocument = (TextDocument) document.Object("TextDocument");
+            EditPoint editPoint = null;
+            if (startline >= 0)
+            {
+                try
+                {
+                    editPoint = textDocument.CreateEditPoint();
+                    editPoint.MoveToLineAndOffset(startline,Math.Max(1, startLineOfCodeOffset));
+
+                    return editPoint.CodeElement[vsCMElement.vsCMElementClass];
+                }
+                catch (COMException e)
+                {
+                    _log.Error("Failed to getCodeElementFromLine", e );
+                }
+
+            }
+            return null;
+        }
+
+        private string getDocumentText(Document document, int startline, int startLineOfCodeOffset, int endline)
         {
             if (document == null) return null;
             try
@@ -243,7 +299,7 @@ namespace ClassOutline.Services
                 }
 
                 editPoint = textDocument.StartPoint.CreateEditPoint();
-
+                
                 return editPoint.GetText(textDocument.EndPoint);
             }
             catch (Exception e )

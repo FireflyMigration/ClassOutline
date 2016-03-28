@@ -377,6 +377,7 @@ namespace ClassOutline.ControlLibrary
         }
 
         public ProjectItem ProjectItem { get; set; }
+        public int StartLineOfCodeOffset { get; set; }
 
         public class ViewReference
 

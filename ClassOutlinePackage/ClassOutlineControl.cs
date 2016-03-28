@@ -629,6 +629,7 @@ namespace ClassOutline
                         child.ImageUri = new Uri("/Resources/UIController.png", UriKind.Relative);
                     }
                     child.StartLineOfCode = element.StartPoint.Line;
+                    child.StartLineOfCodeOffset = element.StartPoint.LineCharOffset;
                     child.EndLineOfCode = element.EndPoint.Line;
 
                     var members = ((CodeClass) element).Members;
@@ -713,7 +714,7 @@ namespace ClassOutline
             var c = new RegionParser();
             var vp = new ViewParser();
            
-            var viewTask = vp.GetViews(d, item.StartLineOfCode, item.EndLineOfCode);
+            var viewTask = vp.GetViews(d, item.StartLineOfCode,item.StartLineOfCodeOffset, item.EndLineOfCode);
             viewTask.Wait();
 
             var views = viewTask.Result;
@@ -726,7 +727,7 @@ namespace ClassOutline
                     new OutlineItem.ViewReference()
                     {
                         CodeElement = x.CodeElement,
-              
+             
                         ViewTypeName = x.TypeName
                     }));
 
@@ -741,7 +742,7 @@ namespace ClassOutline
           
             var vp = new ViewParser();
 
-            var viewTask = vp.GetViews(d, item.StartLineOfCode, item.EndLineOfCode );
+            var viewTask = vp.GetViews(d, item.StartLineOfCode,item.StartLineOfCodeOffset, item.EndLineOfCode );
             viewTask.Wait();
 
             var views = viewTask.Result;

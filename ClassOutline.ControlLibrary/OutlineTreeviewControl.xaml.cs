@@ -101,7 +101,7 @@ namespace ClassOutline.ControlLibrary
             
            // enableTooltips(tvi, false );
 
-            var dc = tvi.DataContext as OutlineItem;
+            var dc = originalDc;
             if (dc != null)
             {
                 var menuItems = dc.MenuItems;
@@ -126,20 +126,20 @@ namespace ClassOutline.ControlLibrary
 
             var i = originalSource as Image;
             if (i != null) return (OutlineItem)i.DataContext;
+
+            try
+            {
+                var dyn = (dynamic) originalSource;
+                return dyn.DataContext;
+            }
+            catch (Exception e)
+            {
+                _log.Error("Failed to retrieve DataContext from originalSource", e );
+            }
             return null;
         }
 
-        private void enableTooltips(Control control, bool isEnabled)
-        {
-            if(_tooltipDuration==null) _tooltipDuration = ToolTipService.GetShowDuration(control);
-            var tooltip = (ToolTip) control.ToolTip;
-            if(!isEnabled && tooltip!=null ) tooltip.IsOpen = false;
-           
-           ToolTipService.SetShowDuration(control, isEnabled ? _tooltipDuration.Value  : 100);
-         ToolTipService.SetIsEnabled(control, isEnabled);
-
-        }
-        
+      
 
         /// <summary>
         /// Recursively search for an item in this subtree.
