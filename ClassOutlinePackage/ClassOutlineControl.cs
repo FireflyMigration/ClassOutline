@@ -768,12 +768,24 @@ namespace ClassOutline
         private void openProjectItem(object src, OpenProjectItemEventArgs args)
         {
             var o = src as OutlineItem;
-            ProjectItem pi = o.ProjectItem  as ProjectItem;
-            if (pi == null) return;
+            ProjectItem pi = null;
+            
+            var ce = args.CodeElement as CodeElement;
+            if (ce != null)
+            {
+                pi = ce.ProjectItem;
+            }
+            if (pi == null)
+            {
+                _log.Debug("Failed to identify ProjectItem in openProjectItem");
+                    return;
+            }
 
             var w= pi.Open();
             pi.ExpandView();
+            
             w.Visible = true;
+            w.Activate();
 
             var s = w?.Document?.Selection as TextSelection;
             s?.MoveTo(args.LineNumber ,0);

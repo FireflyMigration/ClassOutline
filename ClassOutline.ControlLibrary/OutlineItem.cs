@@ -27,9 +27,14 @@ namespace ClassOutline.ControlLibrary
 
     public class OpenProjectItemEventArgs : GotoCodeLocationEventArgs
     {
-        public OpenProjectItemEventArgs(int lineNumber) : base(lineNumber)
+        private readonly object _codeElement;
+
+        public OpenProjectItemEventArgs(object codeElement, int lineNumber) : base(lineNumber)
         {
+            _codeElement = codeElement;
         }
+
+        public object CodeElement {  get { return _codeElement; } }
     }
     public class UpdateViewsEventArgs : EventArgs { }
 
@@ -176,25 +181,13 @@ namespace ClassOutline.ControlLibrary
         }
         private void fireOpenProjectItem(object tgt, int linenumber)
         {
-            var ce = tgt as CodeElement;
-            if (ce == null)
-            {
-                Debug.WriteLine("Cannot locate target object");
-                return;
-            }
-            var w = ce.ProjectItem.Open();
-            if (w == null)
-            {
-                Debug.WriteLine("Failed to open window");
-                return;
-            }
-            w.Activate();
+          
 
-            //var e = this.OpenProjectItemEventHandler;
-            //if (e != null)
-            //{
-            //    e(this, new OpenProjectItemEventArgs(linenumber ));
-            //}
+            var e = this.OpenProjectItemEventHandler;
+            if (e != null)
+            {
+                e(this, new OpenProjectItemEventArgs(tgt, linenumber));
+            }
         }
         private IList<ContextMenuItem> createViewMenuItems()
         {
@@ -210,7 +203,7 @@ namespace ClassOutline.ControlLibrary
                     var m = new ContextMenuItem();
 
                     m.Caption = usage.ViewTypeName;
-                    m.Command = new GotoViewCommand((ce,linenumber)=> fireOpenProjectItem(ce,linenumber), usage.CodeElement, usage.ViewTypeName );
+                    m.Command = new GotoViewCommand((ce,linenumber)=> fireOpenProjectItem(usage.CodeElement(),linenumber), usage.CodeElement, usage.ViewTypeName );
                     m.ToolTipText = usage.ViewTypeName;
 
                     ret.Add(m);
