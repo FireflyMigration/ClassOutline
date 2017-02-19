@@ -13,7 +13,7 @@ namespace _service.tests
     public class ItemKindImageMapServiceTests
     {
         [Test]
-        [Ignore]
+        [Ignore("signing")]
         public void signif()
         {
             var vsix =
