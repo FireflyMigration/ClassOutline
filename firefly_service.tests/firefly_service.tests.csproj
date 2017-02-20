@@ -9,9 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>firefly_service.tests</RootNamespace>
     <AssemblyName>firefly_service.tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,13 +37,11 @@
     <Reference Include="envdte80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="nunit.framework, Version=3.6.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.6.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="SignVSIX, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SignVSIXLibrary.1.0.1\lib\net40-client\SignVSIX.dll</HintPath>
@@ -71,10 +69,13 @@
       <Project>{BB72E9AE-DE88-4B5B-A586-14705563704D}</Project>
       <Name>ClassOutline.ControlLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ClassOutlinePackage\ClassOutlineProject.csproj">
-      <Project>{E859C8FF-78C6-40B6-A385-2A679058AF96}</Project>
-      <Name>ClassOutlineProject</Name>
+    <ProjectReference Include="..\ClassOutlinePackage.2017\ClassOutlineProject.2017.csproj">
+      <Project>{5b5c010f-856b-435b-86cc-42037912fff0}</Project>
+      <Name>ClassOutlineProject.2017</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>12.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5B5C010F-856B-435B-86CC-42037912FFF0}</ProjectGuid>
+    <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClassOutline</RootNamespace>
+    <AssemblyName>ClassOutlineExtension</AssemblyName>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <StartAction>Program</StartAction>
+    <StartProgram>$(DevEnvDir)\devenv.exe</StartProgram>
+    <StartArguments>/rootsuffix Exp</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CopyVsixExtensionFiles>False</CopyVsixExtensionFiles>
+    <CopyVsixExtensionLocation>deply</CopyVsixExtensionLocation>
+    <DeployExtension>True</DeployExtension>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="envdte, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="envdte80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="HtmlRenderer, Version=1.5.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlRenderer.Core.1.5.0.6\lib\net45\HtmlRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.7.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop" />
+    <Reference Include="Microsoft.VisualStudio.Shell.14.0, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Immutable.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.11.0, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.8.0, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.9.0, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.TextManager.Interop" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="System.Xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.VisualStudio.CommandBars">
+      <Guid>{1CBA492E-7263-47BB-87FE-639000619B15}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\BitmapToBitmapSource.cs" />
+    <Compile Include="ClassOutlineControl.cs">
+      <DependentUpon>ClassOutlineControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\CodeElementHelper.cs" />
+    <Compile Include="Entities\CodeRegion.cs" />
+    <Compile Include="Services\ImageCache.cs" />
+    <Compile Include="Extensions\ImageExt.cs" />
+    <Compile Include="Services\ItemKindImageMapService.cs">
+    </Compile>
+    <Compile Include="UI\ClassOutlineToolWindow.cs">
+    </Compile>
+    <Compile Include="Guids.cs" />
+    <Compile Include="Services\IItemKindImageMapService.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Services\RegionParser.cs" />
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Extensions\ServiceExt.cs" />
+    <Compile Include="TreeNodes\ClassTreeNode.cs" />
+    <Compile Include="TreeNodes\EnumTreeNode.cs" />
+    <Compile Include="TreeNodes\EventTreeNode.cs" />
+    <Compile Include="TreeNodes\GenericTreeNode.cs" />
+    <Compile Include="TreeNodes\ImportStatementTreeNode.cs" />
+    <Compile Include="TreeNodes\MethodTreeNode.cs" />
+    <Compile Include="TreeNodes\ParameterTreeNode.cs" />
+    <Compile Include="TreeNodes\PropertyTreeNode.cs" />
+    <Compile Include="TreeNodes\StructTreeNode.cs" />
+    <Compile Include="TreeNodes\TreeNodeBase.cs" />
+    <Compile Include="TreeNodes\VariableTreeNode.cs" />
+    <Compile Include="Extensions\TypeExt.cs" />
+    <Compile Include="Services\ViewParser.cs" />
+    <Compile Include="Extensions\VisualTreeExt.cs" />
+    <Compile Include="VSPackage1Package.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VSPackage.resx">
+      <MergeWithCTO>true</MergeWithCTO>
+      <ManifestResourceName>VSPackage</ManifestResourceName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logging.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="source.extension.vsixmanifest">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <VSCTCompile Include="VSPackage1.vsct">
+      <ResourceName>Menus.ctmenu</ResourceName>
+    </VSCTCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\UIController Enabled.png" />
+    <Resource Include="Resources\UIController Disabled.png" />
+    <Resource Include="Resources\UIController.png" />
+    <Resource Include="Resources\sync.png" />
+    <Resource Include="Resources\expand.png" />
+    <Resource Include="Resources\icon.ico" />
+    <Resource Include="Resources\Methods.png" />
+    <Content Include="eula.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="favicon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <None Include="Images\env2.AbstractUIController.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Images\Classes.UI.png" />
+    <Content Include="Images\preview_picture.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Resource Include="Resources\Classes.png" />
+    <Content Include="readme.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Resources\Package.ico" />
+    <Resource Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="ClassOutlineControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassOutline.ControlLibrary\ClassOutline.ControlLibrary.csproj">
+      <Project>{BB72E9AE-DE88-4B5B-A586-14705563704D}</Project>
+      <Name>ClassOutline.ControlLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassOutline.Logging\ClassOutline.Logging.csproj">
+      <Project>{b4c8f712-573b-4be0-9906-38734016c0c3}</Project>
+      <Name>ClassOutline.Logging</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <UseCodebase>true</UseCodebase>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

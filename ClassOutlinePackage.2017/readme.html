@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+<h1>Class Outline Control Readme</h1>
+<div>
+    <h1>Introduction</h1>
+    <p>Adds a new Window (available from Other Windows) called Class Outline, that shows the hierarchy of the currently viewed c# class, and any inner classes<br/>
+        The right-click menu allows navigation to various aspects of the code structure in general and some specific navigation useful for Firefly(c) Business classes: namely the ability to open the Designer of any/all views within the class
+    </p>
+</div>
+    <div>
+        <h3>Version 1.7</h3>
+        <ul>
+            <li>Removed support for VS2012</li>
+            <li>Only views in the selected class are displayed (views used in subclasses are not shown)</li>
+            <li>Fixed intermittent bug where outline not populating</li>
+        </ul>
+    </div>
+
+<div>
+    <h3>Version 1.6</h3>
+    <ul>
+        <li>Fixed Issue #2 where buttons on toolwindow had no visible effect</li>
+    </ul>
+</div>
+
+<div>
+    <h3>Version 1.5</h3>
+    <ul>
+        <li>Added error log to the Output Window (thanks to the Firefly team for the tip)</li>
+        <li>Fixed bug where outline would only populate if open on launch of Visual Studio; and stopped populating if solution closed (caused by waiting indefinitely for VS to exit Zombie state when already loaded)</li>
+    </ul>
+</div>
+<div>
+    <h3>Version 1.4</h3>
+    <ul>
+        <li>Right-click Menu added showing Constructors, Overridden methods, Views and Regions</li>
+        <li>Tree fully expanded by default</li>
+        <li>Fixed minor bug with tooltip overlapping tree</li>
+        <li>Tooltips added to buttons</li>
+    </ul>
+</div>
+</body>
+</html>
