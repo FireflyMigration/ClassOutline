@@ -75,6 +75,7 @@ namespace ClassOutline
             registerExceptionHandler();
         }
 
+
         private void registerExceptionHandler()
         {
             // Register Unhandled Exception Handler
