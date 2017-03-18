@@ -8,6 +8,3 @@ All constructors
 All Run() methods
 All regions
 All Views
-
-
-Project available on GitHub: https://github.com/stickleprojects/ClassOutline
