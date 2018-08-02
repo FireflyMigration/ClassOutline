@@ -56,3 +56,6 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+/.vs/FireflyDocumentOutlineSolution.2017/v15/Server/sqlite3
+/.vs/VSSDK.Analyzers.txt
+/packages
