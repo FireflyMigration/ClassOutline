@@ -5,13 +5,18 @@ using System.Globalization;
 using System.Runtime.InteropServices;
 using System.ComponentModel.Design;
 using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 using log4net;
 using log4net.Config;
 using Microsoft.Win32;
 using Microsoft.VisualStudio;
-using Microsoft.VisualStudio.Shell.Interop;
+
 using Microsoft.VisualStudio.OLE.Interop;
 using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudio.Shell.Interop;
+using Task = System.Threading.Tasks.Task;
+
 
 namespace ClassOutline
 {
@@ -27,7 +32,7 @@ namespace ClassOutline
     /// </summary>
     // This attribute tells the PkgDef creation utility (CreatePkgDef.exe) that this class is
     // a package.
-    [PackageRegistration(UseManagedResourcesOnly = true)]
+    [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading =true)]
     // This attribute is used to register the information needed to show this package
     // in the Help/About dialog of Visual Studio.
     [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)]
@@ -36,9 +41,9 @@ namespace ClassOutline
     // This attribute registers a tool window exposed by this package.
     [ProvideToolWindow(typeof(ClassOutlineToolWindow))]
     [Guid(GuidList.guidVSPackage1PkgString)]
-    [ProvideService(typeof(IClassOutlineSettingsProvider))]
+    [ProvideService(typeof(IClassOutlineSettingsProvider), IsAsyncQueryable = true)]
     [ProvideOptionPage(typeof(OptionPageGrid), "Firefly Community", "Class Outline", 0, 0, true )]
-    public sealed class VSPackage1Package : Package, IClassOutlineSettingsProvider
+    public sealed class VSPackage1Package : AsyncPackage, IClassOutlineSettingsProvider
     {
 
         public bool FireflyImagesEnabled
@@ -69,9 +74,8 @@ namespace ClassOutline
             var logger = LogManager.GetLogger(this.GetType());
             logger.Debug("Startup");
 
-            IServiceContainer serviceContainer = this;
-            ServiceCreatorCallback cc = CreateService;
-            serviceContainer.AddService(typeof(IClassOutlineSettingsProvider), cc, true );
+            AsyncServiceCreatorCallback cc = CreateServiceAsync;
+            this.AddService(typeof(IClassOutlineSettingsProvider), cc, true );
             registerExceptionHandler();
         }
 
@@ -101,11 +105,9 @@ namespace ClassOutline
 
         }
 
-        private object CreateService(IServiceContainer container, Type servicetype)
+        private async Task<object> CreateServiceAsync(IAsyncServiceContainer container, CancellationToken cancellationToken, Type serviceType)
         {
-            if (container != this) return null;
-
-            if (typeof (IClassOutlineSettingsProvider) == servicetype)
+            if (typeof(IClassOutlineSettingsProvider) == serviceType)
             {
                 return this;
             }
@@ -138,14 +140,15 @@ namespace ClassOutline
         // Overridden Package Implementation
         #region Package Members
 
+
         /// <summary>
         /// Initialization of the package; this method is called right after the package is sited, so this is the place
         /// where you can put all the initialization code that rely on services provided by VisualStudio.
         /// </summary>
-        protected override void Initialize()
+        protected override async System.Threading.Tasks.Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
             Debug.WriteLine (string.Format(CultureInfo.CurrentCulture, "Entering Initialize() of: {0}", this.ToString()));
-            base.Initialize();
+            await base.InitializeAsync(cancellationToken, progress);
 
             // Add our command handlers for menu (commands must exist in the .vsct file)
             OleMenuCommandService mcs = GetService(typeof(IMenuCommandService)) as OleMenuCommandService;
