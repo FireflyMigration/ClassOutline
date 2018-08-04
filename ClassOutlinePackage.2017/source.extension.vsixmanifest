@@ -11,7 +11,7 @@
         <PreviewImage>Images\preview_picture.png</PreviewImage>
         <Tags>ide editor class</Tags>
     </Metadata>
-    <Installation InstalledByMsi="false" AllUsers="true">
+    <Installation InstalledByMsi="false">
         <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[14.0,]" />
         <InstallationTarget Version="[14.0,]" Id="Microsoft.VisualStudio.Premium" />
         <InstallationTarget Version="[14.0,]" Id="Microsoft.VisualStudio.Ultimate" />
