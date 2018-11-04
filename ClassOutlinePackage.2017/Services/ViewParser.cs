@@ -24,7 +24,17 @@ namespace ClassOutline.Services
         }
         private string _documentText;
 
-   
+        private CodeElement FindType(IEnumerable<ProjectItem> projectItems, string typename)
+        {
+            
+            foreach(var pi in projectItems)
+            {
+               
+                var found = FindType(pi.ProjectItems, typename);
+                if (found != null) return found;
+            }
+            return null;
+        }
 
         private CodeElement FindType(ProjectItems projectItems, string typename)
         {
@@ -126,6 +136,21 @@ namespace ClassOutline.Services
             return null;
         }
 
+        private IEnumerable<ProjectItem> GetAllParents(ProjectItem currentItem)
+        {
+            var ret = new List<ProjectItem>();
+            ret.Add(currentItem);
+
+            var parentItem = currentItem.Collection.Parent as ProjectItem;
+
+            if (parentItem!=null)
+            {
+                ret.AddRange(GetAllParents(parentItem));
+            }
+
+            return ret;
+        }
+
         public void FindView(ProjectItem activeProjectItem, IEnumerable<ViewAssignment> views)
         {
             if (views == null) return;
@@ -137,28 +162,10 @@ namespace ClassOutline.Services
                 {
                     Debug.WriteLine(v.TypeName);
 
-                    Project parent = activeProjectItem.Collection.Parent as Project;
-                    ProjectItems projectItems = null;
+                    var placesToSearch = GetAllParents(activeProjectItem);
 
-                    if (parent == null)
-                    {
-                        var pi = activeProjectItem.Collection.Parent as ProjectItem;
-                        if (pi != null)
-                        {
-                            projectItems = pi.ProjectItems;
-                        }
-                        else
-                        {
-                            projectItems = activeProjectItem.ContainingProject.ProjectItems;
-                        }
-
-                    }
-                    else
-                    {
-                        projectItems = parent.ProjectItems;
-                    }
-
-                    v.CodeElement = () => FindType(projectItems, v.TypeName);
+                    
+                    v.CodeElement = () => FindType(placesToSearch, v.TypeName);
                 }
             }
         }
