@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
- 
+            xmlns:vs_shell="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.14.0"
+             
              xmlns:ControlLibrary="clr-namespace:ClassOutline.ControlLibrary;assembly=ClassOutline.ControlLibrary"
           
 
@@ -141,7 +142,7 @@
                 <RowDefinition MaxHeight="26"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <ToolBarPanel Grid.Row="0" Grid.Column="0"  Height="26" OpacityMask="Black" Background="#FFBCC7D8" VerticalAlignment="Top">
+            <ToolBarPanel Grid.Row="0" Grid.Column="0"  Height="26" OpacityMask="Black"  Background="{DynamicResource {x:Static vs_shell:EnvironmentColors.SystemMenuBrushKey}}"   VerticalAlignment="Top">
                 <StackPanel Orientation="Horizontal">
                     <Button x:Name="refreshButton" ToolTip="Refresh" Content="Button" Width="22" Style="{DynamicResource refreshButtonStyle}" Height="22" HorizontalAlignment="Left" RenderTransformOrigin="-5.292,3.417" Margin="4,2,0,0" Click="refreshButton_Click" >
                     

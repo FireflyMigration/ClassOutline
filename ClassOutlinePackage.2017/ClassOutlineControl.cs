@@ -285,6 +285,7 @@ namespace ClassOutline
 
         private void refreshToolWindows()
         {
+            
             OutlineCode();
         }
 

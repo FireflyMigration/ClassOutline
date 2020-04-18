@@ -8,3 +8,8 @@ All constructors
 All Run() methods
 All regions
 All Views
+
+
+# Apr 2020
+Added support for themes, many thanks to https://stackoverflow.com/questions/51181319/how-can-i-match-visual-studios-theme-when-creating-a-vsix-tool-window
+
