@@ -62,7 +62,7 @@ namespace ClassOutline.Services
 
         public string DocumentText { get { return _documentText; } }
      
-        public async Task< IEnumerable<ICodeRegion>> GetRegions(Document document)
+        public async Task< IEnumerable<ICodeRegion>> GetRegionsAsync(Document document)
         {
             _documentText = getDocumentText(document);
             if (_documentText == null) return null;

@@ -285,6 +285,7 @@ namespace ClassOutline
 
         private void refreshToolWindows()
         {
+            
             OutlineCode();
         }
 
@@ -402,7 +403,7 @@ namespace ClassOutline
                 var c = new RegionParser();
                 _log.Debug( "Identifying regions");
 
-                var regionTask = c.GetRegions(d);
+                var regionTask = c.GetRegionsAsync(d);
                 var vp = new ViewParser();
 
 

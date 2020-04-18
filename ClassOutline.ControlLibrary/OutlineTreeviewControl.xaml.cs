@@ -42,6 +42,11 @@ namespace ClassOutline.ControlLibrary
 
           public event ItemDoubleClickHandler ItemDoubleClick;
       
+        public Brush BackgroundColor
+        {
+            get { return treeView.Background; }
+            set { treeView.Background = value; }
+        }
         public OutlineControl()
         {
             InitializeComponent();

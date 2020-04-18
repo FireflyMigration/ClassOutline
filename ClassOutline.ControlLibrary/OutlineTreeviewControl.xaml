@@ -3,13 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-            
+            xmlns:vs_shell="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.14.0"
             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:controlLibrary="clr-namespace:ClassOutline.ControlLibrary"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
-
+        <SolidColorBrush x:Key="BackgroundBrush" Color="Aqua"/>
         <SolidColorBrush x:Key="GlyphBrush" Color="#444" />
 
         <Style TargetType="ToolTip" x:Key="TT">
@@ -61,7 +61,7 @@
     </UserControl.DataContext>
     <Grid>
 
-        <TreeView   x:Name="treeView"  ItemsSource="{Binding Children}" HorizontalAlignment="Stretch" >
+        <TreeView   x:Name="treeView"  ItemsSource="{Binding Children}" HorizontalAlignment="Stretch" Background="{DynamicResource {x:Static vs_shell:EnvironmentColors.ToolWindowBackgroundBrushKey}}" Foreground="{DynamicResource {x:Static vs_shell:EnvironmentColors.ToolWindowTextBrushKey}}" >
             <TreeView.Resources>
                 <controlLibrary:TreeViewLineConverter x:Key="TreeViewLineConverter"></controlLibrary:TreeViewLineConverter>
          
@@ -125,7 +125,7 @@
             </TreeView.ItemContainerStyle>
             <TreeView.ItemTemplate>
 
-                <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                <HierarchicalDataTemplate ItemsSource="{Binding Children}" >
 
                     <Grid>
 
@@ -149,7 +149,7 @@
                             </Image.ContextMenu>
                         </Image>
                         <Border Grid.Column="1" Style="{StaticResource ItemBorder}">
-                            <TextBlock  Text="{Binding Name}" >
+                            <TextBlock  Text="{Binding Name}"   Foreground="{DynamicResource {x:Static vs_shell:EnvironmentColors.ToolWindowTextBrushKey}}"  >
                                 <TextBlock.ToolTip  >
                                     <ToolTip Content="{Binding ToolTipText}" Style="{StaticResource TT}"/>
                                 </TextBlock.ToolTip>

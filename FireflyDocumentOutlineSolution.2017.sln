@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		eula.txt = eula.txt
 		IntegrationTests.testsettings = IntegrationTests.testsettings
-		readme.txt = readme.txt
+		readme.md = readme.md
 		UnitTests.testsettings = UnitTests.testsettings
 	EndProjectSection
 EndProject
@@ -50,5 +50,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19B5B16B-34AA-4A27-B8D1-D1203ED09864}
 	EndGlobalSection
 EndGlobal
