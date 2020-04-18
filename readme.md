@@ -14,5 +14,5 @@ All Views
 Added support for themes, many thanks to https://stackoverflow.com/questions/51181319/how-can-i-match-visual-studios-theme-when-creating-a-vsix-tool-window
 
 Demonstration of Light and Dark themes
-![Theme support]("readme_images/themed_support.png")
+![Theme support](readme_images/themed_support.png)
 
