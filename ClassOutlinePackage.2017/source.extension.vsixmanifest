@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="ClassOuyline08239c20-ccf6-4f5f-8c36-0b5669cb462e" Version="1.9.2" Language="en-US" Publisher="Firefly" />
+        <Identity Id="ClassOuyline08239c20-ccf6-4f5f-8c36-0b5669cb462e" Version="1.9.3" Language="en-US" Publisher="Firefly" />
         <DisplayName>Class Outline2017</DisplayName>
         <Description xml:space="preserve">Displays the child classes for the currently edited class</Description>
         <MoreInfo>https://github.com/FireflyMigration/ClassOutline</MoreInfo>
