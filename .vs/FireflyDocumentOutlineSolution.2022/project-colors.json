@@ -1,26 +1,11 @@
 {
   "Version": 1,
   "ProjectMap": {
-    "371f04bf-4a82-4085-8529-17dea9767015": {
-      "ProjectGuid": "371f04bf-4a82-4085-8529-17dea9767015",
-      "DisplayName": "OutlineControl.TestApp",
+    "5b5c010f-856b-435b-86cc-42037912fff0": {
+      "ProjectGuid": "5b5c010f-856b-435b-86cc-42037912fff0",
+      "DisplayName": "ClassOutlineProject",
       "ColorIndex": 0
-    },
-    "bb72e9ae-de88-4b5b-a586-14705563704d": {
-      "ProjectGuid": "bb72e9ae-de88-4b5b-a586-14705563704d",
-      "DisplayName": "ClassOutline.ControlLibrary",
-      "ColorIndex": 1
-    },
-    "a3994f44-fc39-43be-9e5d-c92f0a5cd2fb": {
-      "ProjectGuid": "a3994f44-fc39-43be-9e5d-c92f0a5cd2fb",
-      "DisplayName": "VSIXProject2",
-      "ColorIndex": 2
-    },
-    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
-      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
-      "DisplayName": "Miscellaneous Files",
-      "ColorIndex": -1
     }
   },
-  "NextColorIndex": 3
+  "NextColorIndex": 1
 }

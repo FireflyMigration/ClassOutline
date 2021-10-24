@@ -74,8 +74,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.0.0-preview.1" />
-    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.0.63-preview.1" />
+    <PackageReference Include="Microsoft.VisualStudio.SDK">
+      <Version>17.0.0-previews-4-31709-430</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Utilities">
+      <Version>17.0.0-previews-5-31722-452</Version>
+    </PackageReference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -218,6 +222,9 @@
       <Project>{b4c8f712-573b-4be0-9906-38734016c0c3}</Project>
       <Name>ClassOutline.Logging</Name>
     </ProjectReference>
+    <PackageReference Include="Microsoft.VisualStudio.Shell.15.0">
+      <Version>17.0.0-previews-4-31709-430</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\packages\Microsoft.VisualStudio.Threading.Analyzers.15.7.18\analyzers\cs\Microsoft.VisualStudio.Threading.Analyzers.dll" />
