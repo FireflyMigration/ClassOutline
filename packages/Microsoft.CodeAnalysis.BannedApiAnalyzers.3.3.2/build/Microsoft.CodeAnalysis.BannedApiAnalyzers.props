@@ -1,0 +1,11 @@
+<Project>
+  
+  <!-- 
+    This property group prevents the rule ids implemented in this package to be bumped to errors when
+    the 'CodeAnalysisTreatWarningsAsErrors' = 'false'.
+  -->
+  <PropertyGroup>
+    <CodeAnalysisRuleIds>RS0030;RS0031;RS0035</CodeAnalysisRuleIds>
+    <WarningsNotAsErrors Condition="'$(CodeAnalysisTreatWarningsAsErrors)' == 'false'">$(WarningsNotAsErrors);$(CodeAnalysisRuleIds)</WarningsNotAsErrors>
+  </PropertyGroup>
+</Project>

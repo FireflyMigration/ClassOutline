@@ -1,0 +1,10 @@
+D:\code\firefly\ClassOutline\VSIXProject2\obj\Debug\VSIXProject2.csproj.AssemblyReference.cache
+D:\code\firefly\ClassOutline\VSIXProject2\obj\Debug\ToolboxControl2.baml
+D:\code\firefly\ClassOutline\VSIXProject2\obj\Debug\ToolboxControl2.g.cs
+D:\code\firefly\ClassOutline\VSIXProject2\obj\Debug\VSIXProject2_MarkupCompile.cache
+D:\code\firefly\ClassOutline\VSIXProject2\obj\Debug\VSIXProject2.g.resources
+D:\code\firefly\ClassOutline\VSIXProject2\obj\Debug\_EmptyResource.resources
+D:\code\firefly\ClassOutline\VSIXProject2\obj\Debug\VSIXProject2.ToolboxControl1.resources
+D:\code\firefly\ClassOutline\VSIXProject2\obj\Debug\VSIXProject2.csproj.GenerateResource.cache
+D:\code\firefly\ClassOutline\VSIXProject2\obj\Debug\VSIXProject2.csproj.CoreCompileInputs.cache
+D:\code\firefly\ClassOutline\VSIXProject2\obj\Debug\VSIXProject2.csprojAssemblyReference.cache

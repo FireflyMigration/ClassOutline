@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "dgSpecHash": "K5gLezXZd+K+bYGIHw+bcHonxllmYMdEY5H8XFU/K6O4WRk1j2KrbLcVTaCKQ6hv3sgqWH8kYyoBZRX5k/gNcw==",
+  "success": true,
+  "projectFilePath": "D:\\code\\firefly\\ClassOutline\\VSIXProject2\\VSIXProject2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kieron\\.nuget\\packages\\vssdk.dte\\7.0.4\\vssdk.dte.7.0.4.nupkg.sha512",
+    "C:\\Users\\kieron\\.nuget\\packages\\vssdk.graphmodel\\11.0.4\\vssdk.graphmodel.11.0.4.nupkg.sha512",
+    "C:\\Users\\kieron\\.nuget\\packages\\vssdk.ide\\7.0.4\\vssdk.ide.7.0.4.nupkg.sha512",
+    "C:\\Users\\kieron\\.nuget\\packages\\vssdk.ide.10\\10.0.4\\vssdk.ide.10.10.0.4.nupkg.sha512",
+    "C:\\Users\\kieron\\.nuget\\packages\\vssdk.ide.11\\11.0.4\\vssdk.ide.11.11.0.4.nupkg.sha512",
+    "C:\\Users\\kieron\\.nuget\\packages\\vssdk.ide.12\\12.0.4\\vssdk.ide.12.12.0.4.nupkg.sha512",
+    "C:\\Users\\kieron\\.nuget\\packages\\vssdk.ide.8\\8.0.4\\vssdk.ide.8.8.0.4.nupkg.sha512",
+    "C:\\Users\\kieron\\.nuget\\packages\\vssdk.ide.9\\9.0.4\\vssdk.ide.9.9.0.4.nupkg.sha512",
+    "C:\\Users\\kieron\\.nuget\\packages\\vssdk.ole.interop\\7.0.4\\vssdk.ole.interop.7.0.4.nupkg.sha512",
+    "C:\\Users\\kieron\\.nuget\\packages\\vssdk.shell.12\\12.0.4\\vssdk.shell.12.12.0.4.nupkg.sha512",
+    "C:\\Users\\kieron\\.nuget\\packages\\vssdk.shell.immutable.10\\10.0.4\\vssdk.shell.immutable.10.10.0.4.nupkg.sha512",
+    "C:\\Users\\kieron\\.nuget\\packages\\vssdk.shell.immutable.11\\11.0.4\\vssdk.shell.immutable.11.11.0.4.nupkg.sha512",
+    "C:\\Users\\kieron\\.nuget\\packages\\vssdk.shell.immutable.12\\12.0.4\\vssdk.shell.immutable.12.12.0.4.nupkg.sha512",
+    "C:\\Users\\kieron\\.nuget\\packages\\vssdk.shell.interop\\7.0.4\\vssdk.shell.interop.7.0.4.nupkg.sha512",
+    "C:\\Users\\kieron\\.nuget\\packages\\vssdk.shell.interop.8\\8.0.4\\vssdk.shell.interop.8.8.0.4.nupkg.sha512",
+    "C:\\Users\\kieron\\.nuget\\packages\\vssdk.shell.interop.9\\9.0.4\\vssdk.shell.interop.9.9.0.4.nupkg.sha512",
+    "C:\\Users\\kieron\\.nuget\\packages\\vssdk.textmanager.interop\\7.0.4\\vssdk.textmanager.interop.7.0.4.nupkg.sha512",
+    "C:\\Users\\kieron\\.nuget\\packages\\vssdk.textmanager.interop.8\\8.0.4\\vssdk.textmanager.interop.8.8.0.4.nupkg.sha512",
+    "C:\\Users\\kieron\\.nuget\\packages\\vssdk.threading\\12.0.4\\vssdk.threading.12.0.4.nupkg.sha512",
+    "C:\\Users\\kieron\\.nuget\\packages\\vssdk.threading.12\\12.0.4\\vssdk.threading.12.12.0.4.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,1373 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.7.2": {
+      "VSSDK.DTE/7.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/envdte.dll": {},
+          "lib/net20/stdole.dll": {}
+        },
+        "runtime": {
+          "lib/net20/envdte.dll": {},
+          "lib/net20/stdole.dll": {}
+        }
+      },
+      "VSSDK.GraphModel/11.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.11": "[11.0.4, 12.0.0)"
+        },
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "System",
+          "System.Core",
+          "System.Transactions",
+          "System.Xml",
+          "System.Xml.Linq"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.VisualStudio.GraphModel.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.GraphModel.dll": {}
+        }
+      },
+      "VSSDK.IDE/7.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.IDE.10/10.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.IDE.11/11.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.IDE.12/12.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.IDE.8/8.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.IDE.9/9.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.OLE.Interop/7.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.OLE.Interop.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.OLE.Interop.dll": {}
+        }
+      },
+      "VSSDK.Shell.12/12.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.DTE": "[7.0.4, 8.0.0)",
+          "VSSDK.IDE.12": "[12.0.4, 13.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Immutable.10": "[10.0.4, 11.0.0)",
+          "VSSDK.Shell.Immutable.11": "[11.0.4, 12.0.0)",
+          "VSSDK.Shell.Immutable.12": "[12.0.4, 13.0.0)",
+          "VSSDK.Shell.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Interop.8": "[8.0.4, 9.0.0)",
+          "VSSDK.Shell.Interop.9": "[9.0.4, 10.0.0)",
+          "VSSDK.TextManager.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Threading.12": "[12.0.4, 13.0.0)"
+        },
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "PresentationFramework",
+          "System",
+          "System.Core",
+          "System.Design",
+          "System.Drawing",
+          "System.Windows.Forms",
+          "UIAutomationTypes",
+          "WindowsBase"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.VisualStudio.Shell.12.0.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.Shell.12.0.dll": {}
+        }
+      },
+      "VSSDK.Shell.Immutable.10/10.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.10": "[10.0.4, 11.0.0)"
+        },
+        "compile": {
+          "lib/net40/Microsoft.VisualStudio.Shell.Immutable.10.0.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Microsoft.VisualStudio.Shell.Immutable.10.0.dll": {}
+        }
+      },
+      "VSSDK.Shell.Immutable.11/11.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.GraphModel": "11.0.4",
+          "VSSDK.IDE.11": "[11.0.4, 12.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Interop": "[7.0.4, 8.0.0)"
+        },
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "System"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.VisualStudio.Shell.Immutable.11.0.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.Shell.Immutable.11.0.dll": {}
+        }
+      },
+      "VSSDK.Shell.Immutable.12/12.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.12": "[12.0.4, 13.0.0)"
+        },
+        "frameworkAssemblies": [
+          "PresentationCore"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.VisualStudio.Shell.Immutable.12.0.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.Shell.Immutable.12.0.dll": {}
+        }
+      },
+      "VSSDK.Shell.Interop/7.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE": "[7.0.4, 8.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.TextManager.Interop": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.dll": {}
+        }
+      },
+      "VSSDK.Shell.Interop.8/8.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.8": "[8.0.4, 9.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.TextManager.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.TextManager.Interop.8": "[8.0.4, 9.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.8.0.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.8.0.dll": {}
+        }
+      },
+      "VSSDK.Shell.Interop.9/9.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.9": "[9.0.4, 10.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Interop.8": "[8.0.4, 9.0.0)",
+          "VSSDK.TextManager.Interop": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.9.0.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.9.0.dll": {}
+        }
+      },
+      "VSSDK.TextManager.Interop/7.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE": "[7.0.4, 8.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.TextManager.Interop.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.TextManager.Interop.dll": {}
+        }
+      },
+      "VSSDK.TextManager.Interop.8/8.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.8": "[8.0.4, 9.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.TextManager.Interop": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.TextManager.Interop.8.0.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.TextManager.Interop.8.0.dll": {}
+        }
+      },
+      "VSSDK.Threading/12.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.12": "[12.0.4, 13.0.0)"
+        },
+        "frameworkAssemblies": [
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.VisualStudio.Threading.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.Threading.dll": {}
+        }
+      },
+      "VSSDK.Threading.12/12.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.12": "[12.0.4, 13.0.0)",
+          "VSSDK.Threading": "[12.0.4, 13.0.0)"
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.2/win": {
+      "VSSDK.DTE/7.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/envdte.dll": {},
+          "lib/net20/stdole.dll": {}
+        },
+        "runtime": {
+          "lib/net20/envdte.dll": {},
+          "lib/net20/stdole.dll": {}
+        }
+      },
+      "VSSDK.GraphModel/11.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.11": "[11.0.4, 12.0.0)"
+        },
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "System",
+          "System.Core",
+          "System.Transactions",
+          "System.Xml",
+          "System.Xml.Linq"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.VisualStudio.GraphModel.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.GraphModel.dll": {}
+        }
+      },
+      "VSSDK.IDE/7.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.IDE.10/10.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.IDE.11/11.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.IDE.12/12.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.IDE.8/8.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.IDE.9/9.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.OLE.Interop/7.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.OLE.Interop.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.OLE.Interop.dll": {}
+        }
+      },
+      "VSSDK.Shell.12/12.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.DTE": "[7.0.4, 8.0.0)",
+          "VSSDK.IDE.12": "[12.0.4, 13.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Immutable.10": "[10.0.4, 11.0.0)",
+          "VSSDK.Shell.Immutable.11": "[11.0.4, 12.0.0)",
+          "VSSDK.Shell.Immutable.12": "[12.0.4, 13.0.0)",
+          "VSSDK.Shell.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Interop.8": "[8.0.4, 9.0.0)",
+          "VSSDK.Shell.Interop.9": "[9.0.4, 10.0.0)",
+          "VSSDK.TextManager.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Threading.12": "[12.0.4, 13.0.0)"
+        },
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "PresentationFramework",
+          "System",
+          "System.Core",
+          "System.Design",
+          "System.Drawing",
+          "System.Windows.Forms",
+          "UIAutomationTypes",
+          "WindowsBase"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.VisualStudio.Shell.12.0.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.Shell.12.0.dll": {}
+        }
+      },
+      "VSSDK.Shell.Immutable.10/10.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.10": "[10.0.4, 11.0.0)"
+        },
+        "compile": {
+          "lib/net40/Microsoft.VisualStudio.Shell.Immutable.10.0.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Microsoft.VisualStudio.Shell.Immutable.10.0.dll": {}
+        }
+      },
+      "VSSDK.Shell.Immutable.11/11.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.GraphModel": "11.0.4",
+          "VSSDK.IDE.11": "[11.0.4, 12.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Interop": "[7.0.4, 8.0.0)"
+        },
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "System"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.VisualStudio.Shell.Immutable.11.0.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.Shell.Immutable.11.0.dll": {}
+        }
+      },
+      "VSSDK.Shell.Immutable.12/12.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.12": "[12.0.4, 13.0.0)"
+        },
+        "frameworkAssemblies": [
+          "PresentationCore"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.VisualStudio.Shell.Immutable.12.0.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.Shell.Immutable.12.0.dll": {}
+        }
+      },
+      "VSSDK.Shell.Interop/7.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE": "[7.0.4, 8.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.TextManager.Interop": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.dll": {}
+        }
+      },
+      "VSSDK.Shell.Interop.8/8.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.8": "[8.0.4, 9.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.TextManager.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.TextManager.Interop.8": "[8.0.4, 9.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.8.0.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.8.0.dll": {}
+        }
+      },
+      "VSSDK.Shell.Interop.9/9.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.9": "[9.0.4, 10.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Interop.8": "[8.0.4, 9.0.0)",
+          "VSSDK.TextManager.Interop": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.9.0.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.9.0.dll": {}
+        }
+      },
+      "VSSDK.TextManager.Interop/7.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE": "[7.0.4, 8.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.TextManager.Interop.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.TextManager.Interop.dll": {}
+        }
+      },
+      "VSSDK.TextManager.Interop.8/8.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.8": "[8.0.4, 9.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.TextManager.Interop": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.TextManager.Interop.8.0.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.TextManager.Interop.8.0.dll": {}
+        }
+      },
+      "VSSDK.Threading/12.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.12": "[12.0.4, 13.0.0)"
+        },
+        "frameworkAssemblies": [
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.VisualStudio.Threading.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.Threading.dll": {}
+        }
+      },
+      "VSSDK.Threading.12/12.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.12": "[12.0.4, 13.0.0)",
+          "VSSDK.Threading": "[12.0.4, 13.0.0)"
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.2/win-x64": {
+      "VSSDK.DTE/7.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/envdte.dll": {},
+          "lib/net20/stdole.dll": {}
+        },
+        "runtime": {
+          "lib/net20/envdte.dll": {},
+          "lib/net20/stdole.dll": {}
+        }
+      },
+      "VSSDK.GraphModel/11.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.11": "[11.0.4, 12.0.0)"
+        },
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "System",
+          "System.Core",
+          "System.Transactions",
+          "System.Xml",
+          "System.Xml.Linq"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.VisualStudio.GraphModel.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.GraphModel.dll": {}
+        }
+      },
+      "VSSDK.IDE/7.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.IDE.10/10.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.IDE.11/11.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.IDE.12/12.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.IDE.8/8.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.IDE.9/9.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.OLE.Interop/7.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.OLE.Interop.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.OLE.Interop.dll": {}
+        }
+      },
+      "VSSDK.Shell.12/12.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.DTE": "[7.0.4, 8.0.0)",
+          "VSSDK.IDE.12": "[12.0.4, 13.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Immutable.10": "[10.0.4, 11.0.0)",
+          "VSSDK.Shell.Immutable.11": "[11.0.4, 12.0.0)",
+          "VSSDK.Shell.Immutable.12": "[12.0.4, 13.0.0)",
+          "VSSDK.Shell.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Interop.8": "[8.0.4, 9.0.0)",
+          "VSSDK.Shell.Interop.9": "[9.0.4, 10.0.0)",
+          "VSSDK.TextManager.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Threading.12": "[12.0.4, 13.0.0)"
+        },
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "PresentationFramework",
+          "System",
+          "System.Core",
+          "System.Design",
+          "System.Drawing",
+          "System.Windows.Forms",
+          "UIAutomationTypes",
+          "WindowsBase"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.VisualStudio.Shell.12.0.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.Shell.12.0.dll": {}
+        }
+      },
+      "VSSDK.Shell.Immutable.10/10.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.10": "[10.0.4, 11.0.0)"
+        },
+        "compile": {
+          "lib/net40/Microsoft.VisualStudio.Shell.Immutable.10.0.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Microsoft.VisualStudio.Shell.Immutable.10.0.dll": {}
+        }
+      },
+      "VSSDK.Shell.Immutable.11/11.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.GraphModel": "11.0.4",
+          "VSSDK.IDE.11": "[11.0.4, 12.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Interop": "[7.0.4, 8.0.0)"
+        },
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "System"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.VisualStudio.Shell.Immutable.11.0.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.Shell.Immutable.11.0.dll": {}
+        }
+      },
+      "VSSDK.Shell.Immutable.12/12.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.12": "[12.0.4, 13.0.0)"
+        },
+        "frameworkAssemblies": [
+          "PresentationCore"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.VisualStudio.Shell.Immutable.12.0.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.Shell.Immutable.12.0.dll": {}
+        }
+      },
+      "VSSDK.Shell.Interop/7.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE": "[7.0.4, 8.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.TextManager.Interop": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.dll": {}
+        }
+      },
+      "VSSDK.Shell.Interop.8/8.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.8": "[8.0.4, 9.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.TextManager.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.TextManager.Interop.8": "[8.0.4, 9.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.8.0.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.8.0.dll": {}
+        }
+      },
+      "VSSDK.Shell.Interop.9/9.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.9": "[9.0.4, 10.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Interop.8": "[8.0.4, 9.0.0)",
+          "VSSDK.TextManager.Interop": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.9.0.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.9.0.dll": {}
+        }
+      },
+      "VSSDK.TextManager.Interop/7.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE": "[7.0.4, 8.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.TextManager.Interop.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.TextManager.Interop.dll": {}
+        }
+      },
+      "VSSDK.TextManager.Interop.8/8.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.8": "[8.0.4, 9.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.TextManager.Interop": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.TextManager.Interop.8.0.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.TextManager.Interop.8.0.dll": {}
+        }
+      },
+      "VSSDK.Threading/12.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.12": "[12.0.4, 13.0.0)"
+        },
+        "frameworkAssemblies": [
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.VisualStudio.Threading.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.Threading.dll": {}
+        }
+      },
+      "VSSDK.Threading.12/12.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.12": "[12.0.4, 13.0.0)",
+          "VSSDK.Threading": "[12.0.4, 13.0.0)"
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.2/win-x86": {
+      "VSSDK.DTE/7.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/envdte.dll": {},
+          "lib/net20/stdole.dll": {}
+        },
+        "runtime": {
+          "lib/net20/envdte.dll": {},
+          "lib/net20/stdole.dll": {}
+        }
+      },
+      "VSSDK.GraphModel/11.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.11": "[11.0.4, 12.0.0)"
+        },
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "System",
+          "System.Core",
+          "System.Transactions",
+          "System.Xml",
+          "System.Xml.Linq"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.VisualStudio.GraphModel.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.GraphModel.dll": {}
+        }
+      },
+      "VSSDK.IDE/7.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.IDE.10/10.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.IDE.11/11.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.IDE.12/12.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.IDE.8/8.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.IDE.9/9.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ]
+      },
+      "VSSDK.OLE.Interop/7.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.OLE.Interop.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.OLE.Interop.dll": {}
+        }
+      },
+      "VSSDK.Shell.12/12.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.DTE": "[7.0.4, 8.0.0)",
+          "VSSDK.IDE.12": "[12.0.4, 13.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Immutable.10": "[10.0.4, 11.0.0)",
+          "VSSDK.Shell.Immutable.11": "[11.0.4, 12.0.0)",
+          "VSSDK.Shell.Immutable.12": "[12.0.4, 13.0.0)",
+          "VSSDK.Shell.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Interop.8": "[8.0.4, 9.0.0)",
+          "VSSDK.Shell.Interop.9": "[9.0.4, 10.0.0)",
+          "VSSDK.TextManager.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Threading.12": "[12.0.4, 13.0.0)"
+        },
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "PresentationFramework",
+          "System",
+          "System.Core",
+          "System.Design",
+          "System.Drawing",
+          "System.Windows.Forms",
+          "UIAutomationTypes",
+          "WindowsBase"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.VisualStudio.Shell.12.0.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.Shell.12.0.dll": {}
+        }
+      },
+      "VSSDK.Shell.Immutable.10/10.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.10": "[10.0.4, 11.0.0)"
+        },
+        "compile": {
+          "lib/net40/Microsoft.VisualStudio.Shell.Immutable.10.0.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Microsoft.VisualStudio.Shell.Immutable.10.0.dll": {}
+        }
+      },
+      "VSSDK.Shell.Immutable.11/11.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.GraphModel": "11.0.4",
+          "VSSDK.IDE.11": "[11.0.4, 12.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Interop": "[7.0.4, 8.0.0)"
+        },
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "System"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.VisualStudio.Shell.Immutable.11.0.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.Shell.Immutable.11.0.dll": {}
+        }
+      },
+      "VSSDK.Shell.Immutable.12/12.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.12": "[12.0.4, 13.0.0)"
+        },
+        "frameworkAssemblies": [
+          "PresentationCore"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.VisualStudio.Shell.Immutable.12.0.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.Shell.Immutable.12.0.dll": {}
+        }
+      },
+      "VSSDK.Shell.Interop/7.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE": "[7.0.4, 8.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.TextManager.Interop": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.dll": {}
+        }
+      },
+      "VSSDK.Shell.Interop.8/8.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.8": "[8.0.4, 9.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.TextManager.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.TextManager.Interop.8": "[8.0.4, 9.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.8.0.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.8.0.dll": {}
+        }
+      },
+      "VSSDK.Shell.Interop.9/9.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.9": "[9.0.4, 10.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Interop.8": "[8.0.4, 9.0.0)",
+          "VSSDK.TextManager.Interop": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.9.0.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.Shell.Interop.9.0.dll": {}
+        }
+      },
+      "VSSDK.TextManager.Interop/7.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE": "[7.0.4, 8.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.TextManager.Interop.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.TextManager.Interop.dll": {}
+        }
+      },
+      "VSSDK.TextManager.Interop.8/8.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.8": "[8.0.4, 9.0.0)",
+          "VSSDK.OLE.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.Shell.Interop": "[7.0.4, 8.0.0)",
+          "VSSDK.TextManager.Interop": "[7.0.4, 8.0.0)"
+        },
+        "compile": {
+          "lib/net20/Microsoft.VisualStudio.TextManager.Interop.8.0.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.VisualStudio.TextManager.Interop.8.0.dll": {}
+        }
+      },
+      "VSSDK.Threading/12.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.12": "[12.0.4, 13.0.0)"
+        },
+        "frameworkAssemblies": [
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.VisualStudio.Threading.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.Threading.dll": {}
+        }
+      },
+      "VSSDK.Threading.12/12.0.4": {
+        "type": "package",
+        "dependencies": {
+          "VSSDK.IDE.12": "[12.0.4, 13.0.0)",
+          "VSSDK.Threading": "[12.0.4, 13.0.0)"
+        }
+      }
+    }
+  },
+  "libraries": {
+    "VSSDK.DTE/7.0.4": {
+      "sha512": "uUEaT0sCVnJR54vxfsf5xHpJVWgTrCbl10oKkFuCvJb3I6M5WW4cu9zCTqtYP1i1mYYySGGqooNYiO45kLUkiQ==",
+      "type": "package",
+      "path": "vssdk.dte/7.0.4",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/EnvDTE.xml",
+        "lib/net20/envdte.dll",
+        "lib/net20/stdole.dll",
+        "tools/install.ps1",
+        "vssdk.dte.7.0.4.nupkg.sha512",
+        "vssdk.dte.nuspec"
+      ]
+    },
+    "VSSDK.GraphModel/11.0.4": {
+      "sha512": "Fv4+T6G0w1OKMMKCbJyc6uqCUz6tJDcd7fc7uZrsue1Y+UX/+/ja0FktMpseHbBeWJmgyM0SjDmiHkimJJceRw==",
+      "type": "package",
+      "path": "vssdk.graphmodel/11.0.4",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Microsoft.VisualStudio.GraphModel.dll",
+        "tools/install.ps1",
+        "vssdk.graphmodel.11.0.4.nupkg.sha512",
+        "vssdk.graphmodel.nuspec"
+      ]
+    },
+    "VSSDK.IDE/7.0.4": {
+      "sha512": "KPXgpya93UDz/JZVegRr+AAewTGw46+8Aq7Dl22jWaqjH2KaH/5ycCLG0LET2OX4VBpp15IjhNw08Y5H0vJMKQ==",
+      "type": "package",
+      "path": "vssdk.ide/7.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "vssdk.ide.7.0.4.nupkg.sha512",
+        "vssdk.ide.nuspec"
+      ]
+    },
+    "VSSDK.IDE.10/10.0.4": {
+      "sha512": "DT+JlSUaObx8bln4XcvnaouLU4xgwXTgRXXFjdvmMQ5r/8uxmaAjIxTHPGpVAtxm3JQICGsTuetCDPdI0r7Nbg==",
+      "type": "package",
+      "path": "vssdk.ide.10/10.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "vssdk.ide.10.10.0.4.nupkg.sha512",
+        "vssdk.ide.10.nuspec"
+      ]
+    },
+    "VSSDK.IDE.11/11.0.4": {
+      "sha512": "U6sSnxiYdBu2yO/qSqe16nsuOm8LJaTmVDMqIgjKlgSUuUL9lNj0mIE34ZArd9kQrce+obaE/KSk4hiWYKSm+A==",
+      "type": "package",
+      "path": "vssdk.ide.11/11.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "vssdk.ide.11.11.0.4.nupkg.sha512",
+        "vssdk.ide.11.nuspec"
+      ]
+    },
+    "VSSDK.IDE.12/12.0.4": {
+      "sha512": "XYcSrKW9369JO1tOAuNxzZ6OOlx2QujDuboey4eYpp9GgA3Bd3mo0Fy2ZJd86sZqX27roBRzJfM1Ue/peyWOIg==",
+      "type": "package",
+      "path": "vssdk.ide.12/12.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "vssdk.ide.12.12.0.4.nupkg.sha512",
+        "vssdk.ide.12.nuspec"
+      ]
+    },
+    "VSSDK.IDE.8/8.0.4": {
+      "sha512": "h3AXxHOMZBRANaDU5B2C3OdcyOOysSN8vJvs4CMqt4Mmh5BSXmezNwE9r9zUoVvyOxfnri8jOtGwGNM581UgmQ==",
+      "type": "package",
+      "path": "vssdk.ide.8/8.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "vssdk.ide.8.8.0.4.nupkg.sha512",
+        "vssdk.ide.8.nuspec"
+      ]
+    },
+    "VSSDK.IDE.9/9.0.4": {
+      "sha512": "FX3N+LeL1qyJvWOBvOMfQqL25LCQRgk89vlzvMOeFOuiHu7kD7AyjaujcduHCJh5KJ/bPzHtPsEyDwUIX+7/dQ==",
+      "type": "package",
+      "path": "vssdk.ide.9/9.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "vssdk.ide.9.9.0.4.nupkg.sha512",
+        "vssdk.ide.9.nuspec"
+      ]
+    },
+    "VSSDK.OLE.Interop/7.0.4": {
+      "sha512": "sn+ID3zJ4FydS9gUBHuHpFnOjOPvUmrUfKeibIHCC9eS4LUxd164Vybqh6GQYK4kzTj3ukcES3rPWR7blD2Uag==",
+      "type": "package",
+      "path": "vssdk.ole.interop/7.0.4",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/Microsoft.VisualStudio.OLE.Interop.dll",
+        "lib/net20/Microsoft.VisualStudio.OLE.Interop.xml",
+        "tools/install.ps1",
+        "vssdk.ole.interop.7.0.4.nupkg.sha512",
+        "vssdk.ole.interop.nuspec"
+      ]
+    },
+    "VSSDK.Shell.12/12.0.4": {
+      "sha512": "cqGZIlD4MxXaEdl7H05L/jMf+FE+93B5QndfnDi8Im4ijuaoYTpaKUhy6nsyJ8pFC8nLuPQjmAV1HZBjeyiDcA==",
+      "type": "package",
+      "path": "vssdk.shell.12/12.0.4",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Microsoft.VisualStudio.Shell.12.0.dll",
+        "lib/net45/Microsoft.VisualStudio.Shell.12.0.xml",
+        "tools/install.ps1",
+        "vssdk.shell.12.12.0.4.nupkg.sha512",
+        "vssdk.shell.12.nuspec"
+      ]
+    },
+    "VSSDK.Shell.Immutable.10/10.0.4": {
+      "sha512": "CMhiJ7vTDhPp8RBnc3Sw6VQmdaM6Ax+s3UrY005SqTUdvw577HPSWhIekptVAbVTbHmgHrgF5FQQyxCGmOaztQ==",
+      "type": "package",
+      "path": "vssdk.shell.immutable.10/10.0.4",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/Microsoft.VisualStudio.Shell.Immutable.10.0.dll",
+        "lib/net40/Microsoft.VisualStudio.Shell.Immutable.10.0.xml",
+        "tools/install.ps1",
+        "vssdk.shell.immutable.10.10.0.4.nupkg.sha512",
+        "vssdk.shell.immutable.10.nuspec"
+      ]
+    },
+    "VSSDK.Shell.Immutable.11/11.0.4": {
+      "sha512": "ZzHi0ITiPHfbM3RvMBF5NttT0/zuHzE8p8z7u9zyhxVMhQ5mk5xtonIJwNK8qeHzOH1lv3r4tHQ0Ff/43Vf1Gg==",
+      "type": "package",
+      "path": "vssdk.shell.immutable.11/11.0.4",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Microsoft.VisualStudio.Shell.Immutable.11.0.dll",
+        "lib/net45/Microsoft.VisualStudio.Shell.Immutable.11.0.xml",
+        "tools/install.ps1",
+        "vssdk.shell.immutable.11.11.0.4.nupkg.sha512",
+        "vssdk.shell.immutable.11.nuspec"
+      ]
+    },
+    "VSSDK.Shell.Immutable.12/12.0.4": {
+      "sha512": "2yx+E5MKOUTDIADiZQL54ECTTA8kvb4AYfEzmSj2EUJjURflHbbc6dtWHdFEl1+ezuUleyP2CcmOY1MOdYkEiQ==",
+      "type": "package",
+      "path": "vssdk.shell.immutable.12/12.0.4",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Microsoft.VisualStudio.Shell.Immutable.12.0.dll",
+        "lib/net45/Microsoft.VisualStudio.Shell.Immutable.12.0.xml",
+        "tools/install.ps1",
+        "vssdk.shell.immutable.12.12.0.4.nupkg.sha512",
+        "vssdk.shell.immutable.12.nuspec"
+      ]
+    },
+    "VSSDK.Shell.Interop/7.0.4": {
+      "sha512": "to6RrDoKNb1KU5GPmf38v0pnkKMPBkGxHhMxqJEHG7hduVivkA0Jvf/nuxaeG8auAt//SluvNe7C6ce+/stBmg==",
+      "type": "package",
+      "path": "vssdk.shell.interop/7.0.4",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/Microsoft.VisualStudio.Shell.Interop.dll",
+        "lib/net20/Microsoft.VisualStudio.Shell.Interop.xml",
+        "tools/install.ps1",
+        "vssdk.shell.interop.7.0.4.nupkg.sha512",
+        "vssdk.shell.interop.nuspec"
+      ]
+    },
+    "VSSDK.Shell.Interop.8/8.0.4": {
+      "sha512": "WMc2FpBlQTqEYMvuyZYijSrNPf8muIMBGKO/gY02mWlLbIHsiwrFD3mp2BP3pS0RLFBuyiKPCicwEfpKLRSJvQ==",
+      "type": "package",
+      "path": "vssdk.shell.interop.8/8.0.4",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/Microsoft.VisualStudio.Shell.Interop.8.0.dll",
+        "lib/net20/Microsoft.VisualStudio.Shell.Interop.8.0.xml",
+        "tools/install.ps1",
+        "vssdk.shell.interop.8.8.0.4.nupkg.sha512",
+        "vssdk.shell.interop.8.nuspec"
+      ]
+    },
+    "VSSDK.Shell.Interop.9/9.0.4": {
+      "sha512": "KvXySNF0bFcyspvWib+7TiX7lfeytml8Llb0SXfR0+RNlC4k9GC2B3tukhK8sK4QywGVi5UntlEHsFTrTZq2/g==",
+      "type": "package",
+      "path": "vssdk.shell.interop.9/9.0.4",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/Microsoft.VisualStudio.Shell.Interop.9.0.dll",
+        "lib/net20/Microsoft.VisualStudio.Shell.Interop.9.0.xml",
+        "tools/install.ps1",
+        "vssdk.shell.interop.9.9.0.4.nupkg.sha512",
+        "vssdk.shell.interop.9.nuspec"
+      ]
+    },
+    "VSSDK.TextManager.Interop/7.0.4": {
+      "sha512": "o+OhLaUblALk2psaBzJo3lAlmMwAvyO/r2lJXHxEZ1ie5f5T2Ybd00a3yAGlnYIAfHW8PsIwDVQugJVILzoWZg==",
+      "type": "package",
+      "path": "vssdk.textmanager.interop/7.0.4",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/Microsoft.VisualStudio.TextManager.Interop.dll",
+        "lib/net20/Microsoft.VisualStudio.TextManager.Interop.xml",
+        "tools/install.ps1",
+        "vssdk.textmanager.interop.7.0.4.nupkg.sha512",
+        "vssdk.textmanager.interop.nuspec"
+      ]
+    },
+    "VSSDK.TextManager.Interop.8/8.0.4": {
+      "sha512": "2IWUBxFL5cXzLmRuR9w2SmlbcTKydKzWrdaU/HZ0hCk0SVFEVMqLVIBHeMdJPrr9zN4/d7nKr/hIFoZQAYUrQw==",
+      "type": "package",
+      "path": "vssdk.textmanager.interop.8/8.0.4",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/Microsoft.VisualStudio.TextManager.Interop.8.0.dll",
+        "lib/net20/Microsoft.VisualStudio.TextManager.Interop.8.0.xml",
+        "tools/install.ps1",
+        "vssdk.textmanager.interop.8.8.0.4.nupkg.sha512",
+        "vssdk.textmanager.interop.8.nuspec"
+      ]
+    },
+    "VSSDK.Threading/12.0.4": {
+      "sha512": "B5iF749zt0PSC7FV7/prL7jj2nynoTuiZvDXT3epvuvQ7aXMr6kTsWoQfoAvrJOCIul8nriZdvlXzsSSnQwlbw==",
+      "type": "package",
+      "path": "vssdk.threading/12.0.4",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Microsoft.VisualStudio.Threading.dll",
+        "lib/net45/Microsoft.VisualStudio.Threading.xml",
+        "tools/install.ps1",
+        "vssdk.threading.12.0.4.nupkg.sha512",
+        "vssdk.threading.nuspec"
+      ]
+    },
+    "VSSDK.Threading.12/12.0.4": {
+      "sha512": "IVmP8FZWKIhtYmTguk7wGshFk04lKXRKwJn8ozqqk0wYvtkZyxE/kV4q9ovFNHpgLKDZsnS3gLO6lK0hPtYDkQ==",
+      "type": "package",
+      "path": "vssdk.threading.12/12.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "vssdk.threading.12.12.0.4.nupkg.sha512",
+        "vssdk.threading.12.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.7.2": [
+      "VSSDK.Shell.12 >= 12.0.4"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\kieron\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\code\\firefly\\ClassOutline\\VSIXProject2\\VSIXProject2.csproj",
+      "projectName": "VSIXProject2",
+      "projectPath": "D:\\code\\firefly\\ClassOutline\\VSIXProject2\\VSIXProject2.csproj",
+      "packagesPath": "C:\\Users\\kieron\\.nuget\\packages\\",
+      "outputPath": "D:\\code\\firefly\\ClassOutline\\VSIXProject2\\obj\\",
+      "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\kieron\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net472"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net472": {
+          "projectReferences": {}
+        }
+      }
+    },
+    "frameworks": {
+      "net472": {
+        "dependencies": {
+          "VSSDK.Shell.12": {
+            "target": "Package",
+            "version": "[12.0.4, )"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "win": {
+        "#import": []
+      },
+      "win-x64": {
+        "#import": []
+      },
+      "win-x86": {
+        "#import": []
+      }
+    }
+  }
+}

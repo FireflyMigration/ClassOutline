@@ -16,3 +16,12 @@ Added support for themes, many thanks to https://stackoverflow.com/questions/511
 Demonstration of Light and Dark themes
 ![Theme support](readme_images/themed_support.png)
 
+# Useful links
+https://docs.microsoft.com/en-us/visualstudio/extensibility/migration/migrated-assemblies?view=vs-2022
+https://github.com/dotnet/roslyn/blob/main/docs/features/source-generators.cookbook.md
+
+
+Migrating to 2022 time spent
+2021.10.23         4h   trying to get environmentcolors to work, adding and rebuilindg against various versions of visualstudio.shell, starting from scratch project
+2021.10.17         4h   trying to get environmentcolors to work, adding and rebuilindg against various versions of visualstudio.shell
+

@@ -11,15 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		UnitTests.testsettings = UnitTests.testsettings
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "firefly_service.tests", "firefly_service.tests\firefly_service.tests.csproj", "{33AD1080-F969-45AB-8B4F-0ACDBFD3BABF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "firefly_service.tests", "2017\firefly_service.tests\firefly_service.tests.csproj", "{33AD1080-F969-45AB-8B4F-0ACDBFD3BABF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassOutline.ControlLibrary", "ClassOutline.ControlLibrary\ClassOutline.ControlLibrary.csproj", "{BB72E9AE-DE88-4B5B-A586-14705563704D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassOutline.ControlLibrary", "2017\ClassOutline.ControlLibrary\ClassOutline.ControlLibrary.csproj", "{BB72E9AE-DE88-4B5B-A586-14705563704D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutlineControl.TestApp", "OutlineControl.TestApp\OutlineControl.TestApp.csproj", "{371F04BF-4A82-4085-8529-17DEA9767015}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutlineControl.TestApp", "2017\OutlineControl.TestApp\OutlineControl.TestApp.csproj", "{371F04BF-4A82-4085-8529-17DEA9767015}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassOutline.Logging", "ClassOutline.Logging\ClassOutline.Logging.csproj", "{B4C8F712-573B-4BE0-9906-38734016C0C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassOutline.Logging", "2017\ClassOutline.Logging\ClassOutline.Logging.csproj", "{B4C8F712-573B-4BE0-9906-38734016C0C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassOutlineProject.2017", "ClassOutlinePackage.2017\ClassOutlineProject.2017.csproj", "{5B5C010F-856B-435B-86CC-42037912FFF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassOutlineProject.2017", "2017\ClassOutlinePackage.2017\ClassOutlineProject.2017.csproj", "{5B5C010F-856B-435B-86CC-42037912FFF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<RuleSet Name="All Rules with default severity" Description="All Rules with default severity. Rules with IsEnabledByDefault = false are disabled." ToolsVersion="15.0">
+   <Rules AnalyzerId="Microsoft.CodeAnalysis.BannedApiAnalyzers" RuleNamespace="Microsoft.CodeAnalysis.BannedApiAnalyzers">
+      <Rule Id="RS0030" Action="Warning" />          <!-- Do not used banned APIs -->
+      <Rule Id="RS0031" Action="Warning" />          <!-- The list of banned symbols contains a duplicate -->
+      <Rule Id="RS0035" Action="Error" />            <!-- External access to internal symbols outside the restricted namespace(s) is prohibited -->
+   </Rules>
+</RuleSet>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">D:\code\firefly\ClassOutline\VSIXProject2\obj\project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\kieron\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">4.9.3</NuGetToolVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgVSSDK_Threading Condition=" '$(PkgVSSDK_Threading)' == '' ">C:\Users\kieron\.nuget\packages\vssdk.threading\12.0.4</PkgVSSDK_Threading>
+    <PkgVSSDK_OLE_Interop Condition=" '$(PkgVSSDK_OLE_Interop)' == '' ">C:\Users\kieron\.nuget\packages\vssdk.ole.interop\7.0.4</PkgVSSDK_OLE_Interop>
+    <PkgVSSDK_TextManager_Interop Condition=" '$(PkgVSSDK_TextManager_Interop)' == '' ">C:\Users\kieron\.nuget\packages\vssdk.textmanager.interop\7.0.4</PkgVSSDK_TextManager_Interop>
+    <PkgVSSDK_Shell_Interop Condition=" '$(PkgVSSDK_Shell_Interop)' == '' ">C:\Users\kieron\.nuget\packages\vssdk.shell.interop\7.0.4</PkgVSSDK_Shell_Interop>
+    <PkgVSSDK_TextManager_Interop_8 Condition=" '$(PkgVSSDK_TextManager_Interop_8)' == '' ">C:\Users\kieron\.nuget\packages\vssdk.textmanager.interop.8\8.0.4</PkgVSSDK_TextManager_Interop_8>
+    <PkgVSSDK_Shell_Interop_8 Condition=" '$(PkgVSSDK_Shell_Interop_8)' == '' ">C:\Users\kieron\.nuget\packages\vssdk.shell.interop.8\8.0.4</PkgVSSDK_Shell_Interop_8>
+    <PkgVSSDK_Shell_Interop_9 Condition=" '$(PkgVSSDK_Shell_Interop_9)' == '' ">C:\Users\kieron\.nuget\packages\vssdk.shell.interop.9\9.0.4</PkgVSSDK_Shell_Interop_9>
+    <PkgVSSDK_Shell_Immutable_12 Condition=" '$(PkgVSSDK_Shell_Immutable_12)' == '' ">C:\Users\kieron\.nuget\packages\vssdk.shell.immutable.12\12.0.4</PkgVSSDK_Shell_Immutable_12>
+    <PkgVSSDK_GraphModel Condition=" '$(PkgVSSDK_GraphModel)' == '' ">C:\Users\kieron\.nuget\packages\vssdk.graphmodel\11.0.4</PkgVSSDK_GraphModel>
+    <PkgVSSDK_Shell_Immutable_11 Condition=" '$(PkgVSSDK_Shell_Immutable_11)' == '' ">C:\Users\kieron\.nuget\packages\vssdk.shell.immutable.11\11.0.4</PkgVSSDK_Shell_Immutable_11>
+    <PkgVSSDK_Shell_Immutable_10 Condition=" '$(PkgVSSDK_Shell_Immutable_10)' == '' ">C:\Users\kieron\.nuget\packages\vssdk.shell.immutable.10\10.0.4</PkgVSSDK_Shell_Immutable_10>
+    <PkgVSSDK_DTE Condition=" '$(PkgVSSDK_DTE)' == '' ">C:\Users\kieron\.nuget\packages\vssdk.dte\7.0.4</PkgVSSDK_DTE>
+    <PkgVSSDK_Shell_12 Condition=" '$(PkgVSSDK_Shell_12)' == '' ">C:\Users\kieron\.nuget\packages\vssdk.shell.12\12.0.4</PkgVSSDK_Shell_12>
+  </PropertyGroup>
+</Project>

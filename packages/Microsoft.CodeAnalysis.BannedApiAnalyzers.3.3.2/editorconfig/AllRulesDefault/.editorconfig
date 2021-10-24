@@ -1,0 +1,17 @@
+# NOTE: Requires **VS2019 16.3** or later
+
+# All Rules with default severity
+# Description: All Rules with default severity. Rules with IsEnabledByDefault = false are disabled.
+
+# Code files
+[*.{cs,vb}]
+
+
+# RS0030: Do not used banned APIs
+dotnet_diagnostic.RS0030.severity = warning
+
+# RS0031: The list of banned symbols contains a duplicate
+dotnet_diagnostic.RS0031.severity = warning
+
+# RS0035: External access to internal symbols outside the restricted namespace(s) is prohibited
+dotnet_diagnostic.RS0035.severity = error

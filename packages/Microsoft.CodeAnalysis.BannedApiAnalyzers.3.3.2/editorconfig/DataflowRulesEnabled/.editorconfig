@@ -1,0 +1,22 @@
+# NOTE: Requires **VS2019 16.3** or later
+
+# Dataflow Rules Enabled with default severity
+# Description: All Dataflow Rules are enabled with default severity. Dataflow Rules with IsEnabledByDefault = false are force enabled with default severity. Non-Dataflow Rules are disabled.
+
+# Code files
+[*.{cs,vb}]
+
+# Dataflow Rules
+
+
+
+# Other Rules
+
+# RS0030: Do not used banned APIs
+dotnet_diagnostic.RS0030.severity = none
+
+# RS0031: The list of banned symbols contains a duplicate
+dotnet_diagnostic.RS0031.severity = none
+
+# RS0035: External access to internal symbols outside the restricted namespace(s) is prohibited
+dotnet_diagnostic.RS0035.severity = none

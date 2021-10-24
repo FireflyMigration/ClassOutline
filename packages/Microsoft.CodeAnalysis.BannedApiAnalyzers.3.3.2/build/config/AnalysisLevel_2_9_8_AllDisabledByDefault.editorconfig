@@ -1,0 +1,16 @@
+# NOTE: Requires **VS2019 16.7** or later
+
+# Rules from '2.9.8' release with 'AllDisabledByDefault' analysis mode
+# Description: Rules with enabled-by-default state from '2.9.8' release with 'AllDisabledByDefault' analysis mode. Rules that are first released in a version later than '2.9.8' are disabled.
+
+is_global = true
+
+
+# RS0030: Do not used banned APIs
+dotnet_diagnostic.RS0030.severity = none
+
+# RS0031: The list of banned symbols contains a duplicate
+dotnet_diagnostic.RS0031.severity = none
+
+# RS0035: External access to internal symbols outside the restricted namespace(s) is prohibited
+dotnet_diagnostic.RS0035.severity = none
