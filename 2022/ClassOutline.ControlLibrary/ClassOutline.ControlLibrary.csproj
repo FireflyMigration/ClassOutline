@@ -102,11 +102,11 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="log4net">
-      <Version>2.0.12</Version>
+      <Version>2.0.13</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.0.0-previews-4-31709-430" />
+    <PackageReference Include="Microsoft.VisualStudio.SDK" Version="16.10.31321.278" />
     <PackageReference Include="Microsoft.VisualStudio.Utilities">
-      <Version>17.0.0-previews-5-31722-452</Version>
+      <Version>16.10.31321.278</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
