@@ -178,6 +178,7 @@ namespace ClassOutline
         [Category("General")]
         [DisplayName("Highlight UIController")]
         [Description("Use special icons for UI Controller classes")]
+        [DefaultValue(true)]
         public bool FireflyImagesEnabled
         {
             get { return _fireflyImagesEnabled; }
